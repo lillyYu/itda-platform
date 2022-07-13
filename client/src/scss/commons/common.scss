@@ -106,6 +106,10 @@ textarea {
   color: white;
   margin: 0;
   font-size: 1.6rem;
+
+  &.errorBorder{
+    border: 1px solid $point-pink-color;
+  }
 }
 
 .inputLabel {
@@ -117,16 +121,12 @@ textarea {
     position: absolute;
     bottom: -2.2rem;
     left: 0;
-    opacity: 0;
+    opacity: 1;
     color: $point-pink-color;
     transition: all 0.3s;
 
     &.blue {
       color: $point-blue-color;
-    }
-    
-    &.active {
-      opacity: 1;
     }
   }
 

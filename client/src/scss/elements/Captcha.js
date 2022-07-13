@@ -1,13 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 let code;
 
-const Captcha = () => {
-  const captchaText = useRef();
+const Captcha = ({register, errors, trigger}) => {
   const captchaImg = useRef();
-
-  const [validCaptcha, setValidCaptcha] = useState(false)
-  const [errorMessage, setErrorMessage] = useState("");
 
   const createCaptcha = () => {
     captchaImg.current.innerHTML = "";
@@ -37,16 +33,6 @@ const Captcha = () => {
     captchaImg.current.appendChild(canv);
   }
 
-  const validateCaptcha = () => {
-    if (captchaText.current.value === code) {
-      setErrorMessage("Valid Captcha")
-      setValidCaptcha(true)
-    }else{
-      setErrorMessage("Invalid Captcha");
-      setValidCaptcha(false)
-    }
-  }
-
   useEffect(() => {
     createCaptcha()
   }, [])
@@ -61,12 +47,9 @@ const Captcha = () => {
         />
         <i
           className="ri-restart-line"
-          onClick={() => {
+          onClick={ async () => {
             createCaptcha();
-            if(captchaText.current.value !== ""){
-              validateCaptcha();
-            }
-            
+            await trigger("cpatchaText");
           }}
         />
       </div>
@@ -75,15 +58,18 @@ const Captcha = () => {
         <input 
           type="text" 
           id="cpatchaText"
-          ref={captchaText}
-          onChange={() => validateCaptcha()}
+          autoComplete="off"
+          className={errors.cpatchaText ? "errorBorder" : undefined}
+          {...register("cpatchaText", {
+            required:"*필수 입력 항목입니다.", 
+            validate: {
+              value: (v) => v === code || '코드가 일치하지 않습니다.'
+            }
+          }
+          )}
         />
-        <label htmlFor="cpatchaText">
-          captcha
-        </label>
-        <span className={`error active ${validCaptcha ? "blue" : "pink"}`}>
-          {errorMessage}
-        </span>
+        <label htmlFor="cpatchaText">captcha</label>
+        {errors.cpatchaText && <span className="error">{errors.cpatchaText.message}</span>}
       </div>
     </div>
   )

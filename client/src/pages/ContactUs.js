@@ -1,7 +1,7 @@
 import SectionTitle from "components/elements/SectionTitle"
 import 'scss/pages/contact-us.scss';
 import pdf from 'images/itdaCompanyInfo.pdf'
-import Captcha from "scss/elements/Captcha";
+import ContactForm from "components/contact-form/ContactForm";
 
 const ContactUs = ({sections}) => {
   return (
@@ -55,85 +55,7 @@ const ContactUs = ({sections}) => {
           </ul>
         </address>  
 
-        <form>
-          <h3>
-            &#60; <span>div</span> <span>className</span> <span> ='ask to ITDA'</span> &#47;&#62;
-          </h3>
-
-          <div className="form-wrap">
-            <div className="inputLabel">
-              <input 
-                type="text" 
-                name="name" 
-                id="name"
-                autoComplete="off"
-                required
-              />
-              <label htmlFor="name">
-                name
-              </label>
-            </div>
-  
-            <div className="inputLabel">
-              <input 
-                type="phone" 
-                name="phone" 
-                id="phone"
-                autoComplete="off"
-                required
-              />
-              <label htmlFor="phone">
-                phone
-              </label>
-            </div>
-
-            <div className="inputLabel">
-              <input 
-                type="email" 
-                name="email" 
-                id="email"
-                autoComplete="off"
-                required
-              />
-              <label htmlFor="email">
-                email
-              </label>
-            </div>
-
-            <div className="inputLabel">
-              <input 
-                type="text" 
-                name="title" 
-                id="title"
-                autoComplete="off"
-                required
-              />
-              <label htmlFor="title">
-                title
-              </label>
-              <span className="error">
-                *필수 입력 항목입니다.
-              </span>
-            </div>
-
-            <div className="inputLabel">
-              <textarea 
-                id="message"  
-                name="message"
-                required
-              />
-              <label htmlFor="message">
-                other message
-              </label>
-            </div>
-          </div>
-
-          <Captcha />
-
-          <div className="alignCenter">
-            <button type="submit">SUBMIT</button>
-          </div>
-        </form>
+        <ContactForm/>
       </div>
     </section>
   )
