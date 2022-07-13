@@ -16,14 +16,14 @@ function App() {
   const handleScroll = (index) => {
     setNavActive(false);
     setOpen(false);
+
     sections.current[index].scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
+      behavior: 'smooth'
     });
   }
   
   return (
-    <div className="App" ref={(el)=>sections.current[0]=el}>
+    <div className="App">
       <Header 
         handleScroll={handleScroll} 
         navActive={navActive}
@@ -33,7 +33,7 @@ function App() {
       />
 
       <main className="main-contents">
-        <MainBanner />
+        <MainBanner sections={sections}/>
         <OurBusiness sections={sections}/>
         <OurWork sections={sections}/>
         <ContactUs sections={sections}/>

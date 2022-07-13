@@ -45,6 +45,7 @@ const Captcha = ({register, errors, trigger}) => {
           className="captcha"
           ref={captchaImg}
         />
+        
         <i
           className="ri-restart-line"
           onClick={ async () => {

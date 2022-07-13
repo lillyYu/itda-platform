@@ -2,6 +2,14 @@
   color: $point-pink-color;
 }
 
+* {
+  scroll-margin-top: 6rem;
+
+  @include desktop {
+    scroll-margin-top: 8rem;
+  }
+}
+
 .purple {
   color: $point-purple-color;
 }
@@ -107,7 +115,7 @@ textarea {
   margin: 0;
   font-size: 1.6rem;
 
-  &.errorBorder{
+  &.errorBorder {
     border: 1px solid $point-pink-color;
   }
 }

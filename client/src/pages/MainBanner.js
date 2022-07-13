@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { Desktop, Mobile } from 'utils/MediaQuery';
 
-const MainBanner = () => {
+const MainBanner = ({sections}) => {
   const [currentSlide, setCurrentSlide] = useState(1);
 
   useEffect(()=>{
@@ -20,7 +20,7 @@ const MainBanner = () => {
   });
 
   return (
-    <div className="main-banner">
+    <div className="main-banner"  ref={(el)=>sections.current[0]=el}>
       <div className="main-banner-wrap">
         <div className='banner-scroll'>
           <Desktop>

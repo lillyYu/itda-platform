@@ -6,10 +6,12 @@ import LoadingSpinner from "components/elements/LoadingSpinner";
 
 const ContactForm = () => {
   const { register, trigger, handleSubmit, reset, formState: { errors } } = useForm( { mode: "onBlur"});
+
   const [loading, setLoading] = useState(false)
 
   const submitHandler = async (data) => {
     setLoading(true)
+    
     try {
       const res = await axios.post('/mail', {
         data: {
@@ -21,12 +23,10 @@ const ContactForm = () => {
         }
       })
 
-      console.log(res)
-
       if(res.data.code === 200){
         setLoading(false);
         reset();
-        alert(res.data.message)
+        alert('문의 메일이 정상적으로 발송되었습니다. 곧 연락드리겠습니다!')
       }
     } catch (error) {
       setLoading(false)
@@ -35,7 +35,7 @@ const ContactForm = () => {
   }
 
   return (
-    loading ? <LoadingSpinner />
+    loading ? <div className="alignCenter"><LoadingSpinner /></div>
     :
     <form 
       onSubmit={handleSubmit(submitHandler)}
