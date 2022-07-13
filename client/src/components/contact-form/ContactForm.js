@@ -11,21 +11,21 @@ const ContactForm = () => {
   const submitHandler = async (data) => {
     console.log(data);
 
-    // try {
-    //   const res = await axios.post('/mail', {
-    //     data: {
-    //       name: data.name,
-    //       phone: data.phone,
-    //       email: data.email,
-    //       title: data.title,
-    //       message: data.message
-    //     }
-    //   })
+    try {
+      const res = await axios.post('/mail', {
+        data: {
+          name: data.name,
+          phone: data.phone,
+          email: data.email,
+          title: data.title,
+          message: data.message
+        }
+      })
 
-    //   console.log(res)
-    // } catch (error) {
-    //   console.log(error)
-    // }
+      console.log(res)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
