@@ -1,16 +1,20 @@
-const express = require('express')
+const express = require('express');
+const mailer = require('./mailer');
 const app = express()
 const port = process.env.PORT || 5000
-// dotenv 불러오기
+const cors = require('cors');
+const bodyParser = require('body-parser');
 require("dotenv").config();
-// 모듈 불러오기
-const mailer = require('./mailer.js');
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
+app.use(bodyParser.json());
 
 // 메일 전송 라우트
 app.post("/mail", (req, res) => {
-  const { yourname, youremail, yoursubject, yourmessage } = req.body.data;
+  const { name, email, phone, title, message } = req.body.data;
 
-  mailer(yourname, youremail, yoursubject, yourmessage)
+  mailer(name, email, phone, title, message)
     .then((response) => {
       if (response === "success") {
         res.status(200).json({

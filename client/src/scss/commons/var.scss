@@ -150,7 +150,7 @@ $left-bs: -2rem 0px 3rem rgba(0, 0, 0, 0.25);
   min-height: calc(100vh - 6rem);
 
   @include desktop {
-    height: calc(100vh - 8rem);
+    min-height: calc(100vh - 8rem);
   }
 }
 

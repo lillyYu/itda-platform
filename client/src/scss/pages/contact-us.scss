@@ -5,9 +5,26 @@
   @include webMargin();
   padding: 3rem 5%;
 
+  h2 {
+    margin-bottom: 6rem;
+  }
+
   .contact-us-wrap {
-    h2 {
-      margin-bottom: 6rem;
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+
+      &>* {
+        flex: 1;
+      }
+
+      address {
+        max-width: 50rem;
+      }
+
+      form {
+        max-width: 50rem;
+      }
     }
 
     h3 {
@@ -55,6 +72,12 @@
 
             }
           }
+
+          p {
+            span {
+              display: block;
+            }
+          }
         }
       }
     }
@@ -62,15 +85,10 @@
     form {
       margin-bottom: 6rem;
 
-      button[type="submit"] {
-        @include button();
-        background-color: $opacity-white-20;
-        transition: all 0.3s;
-        margin-top: 6rem;
-
-        &:hover {
-          color: $point-pink-color;
-        }
+      .form-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem 0;
       }
 
       .captcha-form {
@@ -93,6 +111,17 @@
         button {
           display: inline-block;
           height: 100%;
+        }
+      }
+
+      button[type="submit"] {
+        @include button();
+        background-color: $opacity-white-20;
+        transition: all 0.3s;
+        margin-top: 6rem;
+
+        &:hover {
+          color: $point-pink-color;
         }
       }
     }

@@ -1,16 +1,15 @@
 import axios from "axios";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
-import Captcha from "scss/elements/Captcha";
+import Captcha from "components/elements/Captcha";
+import { useState } from "react";
+import LoadingSpinner from "components/elements/LoadingSpinner";
 
 const ContactForm = () => {
-  const [valid, setValid] = useState(false);
-
-  const { register, setError, trigger, handleSubmit, watch, formState: { errors } } = useForm( { mode: "onBlur"});
+  const { register, trigger, handleSubmit, reset, formState: { errors } } = useForm( { mode: "onBlur"});
+  const [loading, setLoading] = useState(false)
 
   const submitHandler = async (data) => {
-    console.log(data);
-
+    setLoading(true)
     try {
       const res = await axios.post('/mail', {
         data: {
@@ -23,13 +22,24 @@ const ContactForm = () => {
       })
 
       console.log(res)
+
+      if(res.data.code === 200){
+        setLoading(false);
+        reset();
+        alert(res.data.message)
+      }
     } catch (error) {
+      setLoading(false)
       console.log(error)
     }
   }
 
   return (
-    <form onSubmit={handleSubmit(submitHandler)}>
+    loading ? <LoadingSpinner />
+    :
+    <form 
+      onSubmit={handleSubmit(submitHandler)}
+    >
       <h3>
         &#60; <span>div</span> <span>className</span> <span> ='ask to ITDA'</span> &#47;&#62;
       </h3>

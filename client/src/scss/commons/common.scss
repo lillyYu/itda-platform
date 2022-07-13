@@ -114,7 +114,6 @@ textarea {
 
 .inputLabel {
   position: relative;
-  margin: 3rem 0;
   padding: 0;
 
   .error {
@@ -147,7 +146,7 @@ textarea {
     position: absolute;
     padding: 0 2rem;
     left: 1px;
-    top: 0.5rem;
+    top: 0.8rem;
     color: $opacity-white-60;
     background-color: transparent;
     transition: all 0.3s;

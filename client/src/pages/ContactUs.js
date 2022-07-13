@@ -9,8 +9,9 @@ const ContactUs = ({sections}) => {
       className="contact-us"
       ref={(el) => sections.current[3] = el}
     >
+      <SectionTitle title="CONTACT US" />
+
       <div className="contact-us-wrap">
-        <SectionTitle title="CONTACT US" />
 
         <address>
           <h3>
