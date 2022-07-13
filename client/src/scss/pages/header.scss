@@ -1,0 +1,135 @@
+@import 'scss/commons/var';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 6rem;
+  background: $opacity-white-10;
+  backdrop-filter: blur(4px);
+  z-index: 998;
+
+  @include desktop {
+    height: 8rem;
+  }
+
+  .header-wrap {
+    height: 100%;
+
+    nav {
+      &>ul {
+        li {
+          padding: 2rem 0;
+
+          cursor: pointer;
+          font-size: 1.4rem;
+          font-family: $bold-ff;
+          text-align: center;
+        }
+      }
+
+      &>div {
+        @include alignCenter();
+        width: 100%;
+
+        a {
+          cursor: pointer;
+          font-size: 1.4rem;
+          font-family: $bold-ff;
+          text-align: center;
+
+          @include button();
+          color: $point-pink-color;
+          background-color: $opacity-white-20;
+        }
+      }
+    }
+
+    @include desktop {
+      @include flexCenterBetween();
+      @include webMargin();
+
+      nav {
+        @include flexAlignCenter();
+        width: 100%;
+
+        ul {
+          @include flexAlignCenter();
+          flex-direction: row;
+          gap: 0 8rem;
+          flex: 5;
+          justify-content: flex-end;
+
+          li {
+            height: 100%;
+            padding: 0;
+          }
+        }
+
+        &>div {
+          flex: 1;
+          justify-content: flex-end;
+        }
+
+      }
+    }
+
+    @include mobile {
+      .header-top {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        margin-left: 3%;
+        z-index: 999;
+
+        .logo {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: fixed;
+        opacity: 0;
+        visibility: none;
+        top: -100vh;
+
+        width: 100%;
+        height: 100vh;
+        padding: 8rem 0 5rem;
+
+        background-color: $base-black-color;
+        transition: 0.7s ease-in-out;
+
+        &.active {
+          visibility: visible;
+          opacity: 1;
+          top: 0;
+        }
+
+        
+        .footer {
+          &>ul {
+            @include flexCenterColumn();
+            gap: 1rem 0;
+
+            &>li {
+              font-size: 1.2rem;
+
+              &:nth-child(2) {
+                color: $opacity-white-60;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

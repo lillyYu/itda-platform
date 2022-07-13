@@ -1,0 +1,106 @@
+@import 'scss/commons/var';
+
+.our-work {
+  @include height();
+  @include webMargin();
+  padding: 3rem 5%;
+
+  .our-work-wrap {
+    @include desktop {
+      padding-top: 3rem;
+    }
+
+    h2 {
+      margin-bottom: 6rem;
+    }
+
+    article {
+      ul {
+        @include grid(1);
+        align-content: stretch;
+        justify-content: stretch;
+        gap: 2rem 1rem;
+
+        @include desktop {
+          @include grid(3);
+        }
+
+        @include tablet {
+          @include grid(2);
+        }
+
+        li {
+          position: relative;
+          width: 100%;
+          overflow: hidden;
+          cursor: pointer;
+          aspect-ratio: 1 / 1;
+
+          @include desktop {
+            &:nth-child(3n+2) {
+              margin-top: 8rem;
+            }
+          }
+
+          &:hover {
+            .hover-bg {
+              top: 0;
+            }
+          }
+
+          .hover-bg {
+            @include alignCenter();
+            position: absolute;
+            z-index: 1;
+            background: $opacity-white-10;
+            backdrop-filter: blur(6px);
+            width: 100%;
+            height: 100%;
+            top: 100%;
+            transition: top 0.3s;
+
+            span {
+              @include mediumFont();
+              display: inline-block;
+              padding: 1rem 2rem;
+              border-radius: 30rem;
+              color: $base-black-color;
+              background-color: $opacity-white-60;
+
+              em {
+                font-family: $bold-ff;
+                font-style: normal;
+
+                // grdient color
+                background-image: linear-gradient(98.63deg, $point-blue-color 0%, $point-purple-color 50%, $point-pink-color 100%);
+                background-size: 100%;
+                background-repeat: repeat;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                -moz-background-clip: text;
+                -moz-text-fill-color: transparent;
+              }
+            }
+          }
+
+          figure {
+            @include imageAlignCenter();
+            width: 100%;
+            height: 100%
+          }
+        }
+      }
+
+      button {
+        @include button();
+        background-color: $opacity-white-20;
+        color: $point-pink-color;
+        margin: 6rem 0;
+
+        &.displayNone {
+          visibility: hidden;
+        }
+      }
+    }
+  }
+}

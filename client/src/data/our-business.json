@@ -1,0 +1,26 @@
+[
+  {
+    "id" : 1,
+    "color" : "#F27EAA",
+    "image": "images/tag1.png",
+    "title" : "Development Strategy Consulting",
+    "subTitle" : "개발전략 컨설팅",
+    "content" : "간단한 상품판매부터 입점형 쇼핑몰의 복잡한 정산, 재고관리까지 이커머스를 운영하는데 필요한 기능구축,  다수유저간의 인터렉션부터 포인트관리까지 모든분야의 플랫폼을 제작한 경험이 있는 개발팀에서 당신의 사업에 맞는 플랫폼을 만들어드립니다."
+  },
+  {
+    "id" : 2,
+    "color" : "#97E1E7",
+    "image": "images/tag2.png",
+    "title" : "WEB, APP Development",
+    "subTitle" : "웹, 앱 개발",
+    "content" : "크로스브라우징부터 웹앱 / ios / Android 까지 다양한 OS에서 여러분의 서비스를 구현할 수있습니다."
+  },
+  {
+    "id" : 3,
+    "color" : "#B99DEE",
+    "image": "images/tag3.png",
+    "title" : "Blockchain Development",
+    "subTitle" : "블록체인 개발",
+    "content" : "스마트컨트랙트, NFT minting, 토큰발행부터 지갑까지 WEB3프로젝트에 필요한 기술을 제공해드립니다."
+  }
+]

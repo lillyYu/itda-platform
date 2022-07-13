@@ -1,0 +1,174 @@
+// font sizes
+$web-base-fs: 1.6rem;
+$mob-base-fs: 1.4rem;
+
+$small-fs: 1.2rem;
+$medium-fs: 2rem;
+$large-fs: 2.4rem;
+$big-fs: 3.2rem;
+
+// colors
+$point-pink-color: #F27EAA;
+$point-purple-color: #B99DEE;
+$point-blue-color: #97E1E7;
+
+$base-black-color: #282A36;
+$base-font-color: #fff;
+
+$opacity-white-10: rgba(255, 255, 255, 0.1);
+$opacity-white-20: rgba(255, 255, 255, 0.2);
+$opacity-white-30: rgba(255, 255, 255, 0.3);
+$opacity-white-60: rgba(255, 255, 255, 0.6);
+
+// font weight
+$normal-fw: 400;
+$medium-fw: 500;
+$bold-fw: 700;
+$thick-fw: 900;
+
+// font family
+$normal-ff : 'Handon3gyeopsal300g', sans-serif;
+$bold-ff : 'Handon3gyeopsal600g', sans-serif;
+
+// Breakpoints
+$breakpoint-mobile: 1023px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+
+// box shadows
+$left-bs: -2rem 0px 3rem rgba(0, 0, 0, 0.25);
+
+// fonts styling
+@mixin smallFont {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+
+@mixin mobFont {
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+
+@mixin webFont {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+@mixin mediumFont {
+  font-size: 2rem;
+  line-height: 2.4rem;
+}
+
+@mixin largeFont {
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+}
+
+@mixin bigFont {
+  font-size: 3.2rem;
+  line-height: 3.6rem;
+}
+
+@mixin headerFont {
+  font-size: 2.8rem;
+  line-height: 3.2rem;
+
+  @include desktop {
+    font-size: 3.2rem;
+    line-height: 3.6rem;
+  }
+}
+
+// buttons
+@mixin button {
+  @include alignCenter();
+  padding: 1.2rem 3rem;
+  border-radius: 6rem;
+  font-family: $bold-ff;
+}
+
+// mixin
+// aligns
+@mixin mobPadding {
+  padding: 0 5%;
+}
+
+@mixin webMargin {
+  max-width: 128rem;
+  margin: 0 auto;
+}
+
+@mixin grid($column) {
+  display: grid;
+  grid-template-columns: repeat($column, 1fr);
+}
+
+@mixin imageAlignCenter() {
+  position: relative;
+  overflow: hidden;
+
+  &>img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    object-fit: cover;
+  }
+}
+
+@mixin flexAlignCenter {
+  display: flex;
+  align-items: center;
+}
+
+@mixin alignCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flexCenterBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flexStartBetween {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+@mixin flexCenterColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin height {
+  min-height: calc(100vh - 6rem);
+
+  @include desktop {
+    height: calc(100vh - 8rem);
+  }
+}
+
+// mediaquery styling
+@mixin mobile {
+  @media (max-width: #{$breakpoint-mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-desktop}) {
+    @content;
+  }
+}

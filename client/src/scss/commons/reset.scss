@@ -1,0 +1,98 @@
+@import "./var.scss";
+
+// 눈누 - handon Handon3gyeopsal300g
+@font-face {
+  font-family: 'Handon3gyeopsal300g';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal300g.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Handon3gyeopsal600g';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal600g.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  width: 100vw;
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  @include mobFont();
+  width: 100vw;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  color: $base-font-color;
+  font-family: $normal-ff;
+  background-color: $base-black-color;
+  word-break: keep-all;
+
+  @include desktop {
+    @include webFont();
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  font-size: inherit;
+  text-decoration: none;
+  font-style: normal;
+}
+
+address {
+  font-style: normal;
+}
+
+i {
+  font-size: 2rem;
+}
+
+em {
+  font: inherit;
+}
+
+.clear:after {
+  content: "";
+  display: block;
+  clear: both;
+  *zoom: 1;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+button:disabled {
+  pointer-events: none;
+}
+
+input,
+select,
+textarea {
+  outline: none;
+}
+
+textarea {
+  aspect-ratio: 16 / 9;
+  color: $base-font-color;
+  font-family: $normal-ff;
+}
+

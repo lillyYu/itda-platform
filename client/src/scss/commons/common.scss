@@ -1,0 +1,155 @@
+.pink {
+  color: $point-pink-color;
+}
+
+.purple {
+  color: $point-purple-color;
+}
+
+.blue {
+  color: $point-blue-color;
+}
+
+.main-contents {
+  position: relative;
+  height: 100%;
+  top: 6rem;
+
+  @include desktop {
+    top: 8rem;
+  }
+}
+
+section h2 {
+  @include headerFont();
+  text-align: center;
+}
+
+.alignCenter {
+  @include alignCenter();
+}
+
+.modalWrap {
+  position: fixed;
+  opacity: 0;
+  display: none;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100vw;
+  min-height: 100vh;
+  transition: all 1s;
+
+  &.active {
+    opacity: 1;
+    display: block;
+
+    .overlay {
+      animation: overlayShow 0.6s ease-in-out alternate both;
+    }
+
+    .modalContents {
+      animation: modalShow 0.8s ease-in-out alternate both;
+    }
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .modalContents {
+    position: relative;
+    z-index: 10;
+    overflow-y: auto;
+    background-color: $base-black-color;
+
+    @include desktop {
+      position: absolute;
+      max-width: 128rem;
+    }
+  }
+}
+
+@keyframes modalShow {
+  from {
+    right: -100vw;
+  }
+
+  to {
+    right: 0;
+  }
+}
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid white;
+  background-color: transparent;
+  padding: 1rem 2rem;
+  color: white;
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.inputLabel {
+  position: relative;
+  margin: 3rem 0;
+  padding: 0;
+
+  .error {
+    position: absolute;
+    bottom: -2.2rem;
+    left: 0;
+    opacity: 0;
+    color: $point-pink-color;
+    transition: all 0.3s;
+
+    &.blue {
+      color: $point-blue-color;
+    }
+    
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  input:focus,
+  textarea:focus {
+    &~label {
+      top: -1.2rem;
+      left: 1rem;
+      background-color: $base-black-color;
+      color: white;
+    }
+  }
+
+  input~label,
+  textarea~label {
+    @include alignCenter();
+    height: 2.4rem;
+    position: absolute;
+    padding: 0 2rem;
+    left: 1px;
+    top: 0.5rem;
+    color: $opacity-white-60;
+    background-color: transparent;
+    transition: all 0.3s;
+  }
+}

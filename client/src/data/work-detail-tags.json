@@ -1,0 +1,78 @@
+[{
+    "range": [{
+        "id": 1,
+        "name": "기획"
+      },
+      {
+        "id": 2,
+        "name": "디자인"
+      },
+      {
+        "id": 3,
+        "name": "개발"
+      }
+    ]
+  },
+  {
+    "os": [{
+        "id": 1,
+        "name": "web"
+      },
+      {
+        "id": 2,
+        "name": "moweb"
+      },
+      {
+        "id": 3,
+        "name": "android"
+      },
+      {
+        "id": 4,
+        "name": "ios"
+      }
+    ]
+  },
+  {
+    "lang": [{
+        "id": 1,
+        "name": "php"
+      },
+      {
+        "id": 2,
+        "name": "react"
+      },
+      {
+        "id": 3,
+        "name": "java"
+      },
+      {
+        "id": 4,
+        "name": "jsp"
+      },
+      {
+        "id": 5,
+        "name": "jpa"
+      },
+      {
+        "id": 6,
+        "name": "mybatis"
+      },
+      {
+        "id": 7,
+        "name": "jquery"
+      },
+      {
+        "id": 8,
+        "name": "node.js"
+      },
+      {
+        "id": 9,
+        "name": "vue.js"
+      },
+      {
+        "id": 10,
+        "name": "cordova"
+      }
+    ]
+  }
+]
