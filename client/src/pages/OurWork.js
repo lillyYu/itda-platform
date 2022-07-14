@@ -63,6 +63,8 @@ const OurWork = ({sections}) => {
                 return (
                   <li 
                     key={work.id}
+                    data-aos="fade-up"
+                    data-aos-delay={`${work.id * 2}00`}
                     onClick={
                       () => {
                         setWorkIndex(work.id - 1)

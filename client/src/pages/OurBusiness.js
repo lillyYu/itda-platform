@@ -1,6 +1,6 @@
 import 'scss/pages/our-business.scss';
 import ourBusiness from 'data/our-business.json';
-import { Desktop, Mobile } from 'utils/MediaQuery';
+import { Desktop } from 'utils/MediaQuery';
 import SectionTitle from 'components/elements/SectionTitle';
 
 const OurBusiness = ({sections}) => {
@@ -18,7 +18,7 @@ const OurBusiness = ({sections}) => {
               {
                 ourBusiness.map((business) => {
                   return(
-                    <header key={business.id}>
+                    <header key={business.id} data-aos="fade-down">
                       <span>0{business.id}</span>
                       <p>
                         <strong style={{color: business.color}}>print</strong>
@@ -35,7 +35,11 @@ const OurBusiness = ({sections}) => {
             {
               ourBusiness.map((business) => {
                 return(
-                  <li key={business.id}>
+                  <li 
+                    key={business.id} 
+                    data-aos="fade-down"
+                    data-aos-delay={`${business.id * 2}00`}
+                  >
                     <header>
                       <img src={business.image} alt="tag"/>
                       <span>0{business.id}</span>

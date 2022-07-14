@@ -4,10 +4,12 @@ import Header from "pages/Header";
 import MainBanner from "pages/MainBanner";
 import OurBusiness from "pages/OurBusiness";
 import OurWork from "pages/OurWork";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRef } from "react";
 import 'scss/commons/master.scss';
 import { Desktop } from "utils/MediaQuery";
+import "aos/dist/aos.css";
+import Aos from "aos";
 
 function App() {
   const sections = useRef([]);
@@ -23,6 +25,15 @@ function App() {
       behavior: 'smooth'
     });
   }
+
+  useEffect(() => {
+    Aos.init({
+      once: true,
+      duration : 800,
+      easing: 'ease-in-out-cubic',
+      anchorPlacement: 'top-bottom'
+    });
+  })
   
   return (
     <div className="App">

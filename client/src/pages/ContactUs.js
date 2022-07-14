@@ -2,7 +2,6 @@ import SectionTitle from "components/elements/SectionTitle"
 import 'scss/pages/contact-us.scss';
 import pdf from 'images/itdaCompanyInfo.pdf'
 import ContactForm from "components/contact-form/ContactForm";
-import Map from "components/contact-form/Map";
 
 const ContactUs = ({sections}) => {
   return (
@@ -13,7 +12,7 @@ const ContactUs = ({sections}) => {
       <SectionTitle title="CONTACT US" />
 
       <div className="contact-us-wrap">
-        <address>
+        <address data-aos="fade-right">
           <h3>
             &#60; <span>div</span> <span>className</span> <span> ='ITDA Address'</span> &#47;&#62;
           </h3>

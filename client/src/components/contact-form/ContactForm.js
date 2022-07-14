@@ -44,7 +44,7 @@ const ContactForm = () => {
   return (
     loading ? <div className="alignCenter"><LoadingSpinner /></div>
     :
-    <form onSubmit={handleSubmit(submitHandler)}>
+    <form onSubmit={handleSubmit(submitHandler)} data-aos="fade-left">
       <h3>
         &#60; <span>div</span> <span>className</span> <span> ='ask to ITDA'</span> &#47;&#62;
       </h3>

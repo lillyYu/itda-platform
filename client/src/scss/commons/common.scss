@@ -1,13 +1,30 @@
-.pink {
-  color: $point-pink-color;
-}
-
 * {
   scroll-margin-top: 6rem;
 
   @include desktop {
     scroll-margin-top: 8rem;
   }
+}
+
+* {
+  &::-webkit-scrollbar {
+    // 스크롤 전체
+    width: 1rem;
+    background-color: $opacity-white-20;
+  }
+  &::-webkit-scrollbar-thumb {
+    // 스크롤 막대
+    width: 100%;
+    background-color: $opacity-white-30;
+  }
+  &::-webkit-scrollbar-track {
+    // 스크롤 막대 외부
+
+  } 
+}
+
+.pink {
+  color: $point-pink-color;
 }
 
 .purple {
@@ -17,6 +34,7 @@
 .blue {
   color: $point-blue-color;
 }
+
 
 .main-contents {
   position: relative;

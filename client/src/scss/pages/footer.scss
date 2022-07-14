@@ -2,15 +2,17 @@
 
 @include mobile {
   .footer {
-    &>ul {
-      @include flexCenterColumn();
-      gap: 1rem 0;
-  
-      &>li {
-        font-size: 1.2rem;
-  
-        &:nth-child(2) {
-          color: $opacity-white-60;
+    .footer-wrap {
+      ul {
+        @include flexCenterColumn();
+        gap: 1rem 0;
+    
+        &>li {
+          font-size: 1.2rem;
+    
+          &:nth-child(2) {
+            color: $opacity-white-60;
+          }
         }
       }
     }
@@ -20,6 +22,7 @@
 
 @include desktop {
   .footer {
+    @include paddingInline();
     height: 10rem;
     margin-top: 4rem;
     background-color: #222;
