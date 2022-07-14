@@ -113,22 +113,6 @@
           opacity: 1;
           top: 0;
         }
-
-        
-        .footer {
-          &>ul {
-            @include flexCenterColumn();
-            gap: 1rem 0;
-
-            &>li {
-              font-size: 1.2rem;
-
-              &:nth-child(2) {
-                color: $opacity-white-60;
-              }
-            }
-          }
-        }
       }
     }
   }

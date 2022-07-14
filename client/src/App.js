@@ -1,4 +1,5 @@
 import ContactUs from "pages/ContactUs";
+import Footer from "pages/Footer";
 import Header from "pages/Header";
 import MainBanner from "pages/MainBanner";
 import OurBusiness from "pages/OurBusiness";
@@ -6,6 +7,7 @@ import OurWork from "pages/OurWork";
 import { useState } from "react";
 import { useRef } from "react";
 import 'scss/commons/master.scss';
+import { Desktop } from "utils/MediaQuery";
 
 function App() {
   const sections = useRef([]);
@@ -38,6 +40,8 @@ function App() {
         <OurWork sections={sections}/>
         <ContactUs sections={sections}/>
       </main>
+
+      <Desktop><Footer/></Desktop>
     </div>
   );
 }

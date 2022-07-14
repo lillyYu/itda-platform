@@ -1,0 +1,42 @@
+@import 'scss/commons/var';
+
+@include mobile {
+  .footer {
+    &>ul {
+      @include flexCenterColumn();
+      gap: 1rem 0;
+  
+      &>li {
+        font-size: 1.2rem;
+  
+        &:nth-child(2) {
+          color: $opacity-white-60;
+        }
+      }
+    }
+  }
+}
+
+
+@include desktop {
+  .footer {
+    height: 10rem;
+    margin-top: 10rem;
+    background-color: #222;
+
+    .footer-wrap {
+      @include webMargin();
+
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0 1.2rem;
+
+      height: 100%;
+
+      ul {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
