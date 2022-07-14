@@ -1,11 +1,48 @@
+@import 'scss/commons/var';
+
 .alert-message {
+  visibility: hidden;
+  opacity: 0;
+  display: block;
   position: fixed;
-  bottom: 0;
-  left: 50;
+  left: 50%;
+  transform: translateX(-50%);
   transition: all 0.3s;
+  color: $base-black-color;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  box-shadow: 2rem 2rem 3rem rgba(0, 0, 0, 0.25);;
+  text-align: center;
   background-color: white;
 
   &.active {
-    bottom: 10rem;
+    animation: fadeinout 3s;
+    animation-fill-mode: both;
+  }
+}
+
+@keyframes fadeinout {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+    bottom: 5vh;
+
+  }
+  30%{
+    visibility: visible;
+    opacity: 1;
+    bottom: 10vh;
+  }
+  60%{
+    visibility: visible;
+    opacity: 1;
+    bottom: 10vh;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+    bottom: 5vh;
   }
 }

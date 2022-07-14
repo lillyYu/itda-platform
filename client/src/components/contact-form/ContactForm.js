@@ -7,7 +7,7 @@ import AlertMessage from "components/elements/AlertMessage";
 import ModalPortal from 'utils/modal/ModalPortal';
 
 const ContactForm = () => {
-  const [message, setMessage] = useState(true);
+  const [message, setMessage] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const { register, trigger, handleSubmit, reset, watch, formState: { errors } } = useForm( { mode: "onBlur",
@@ -34,8 +34,8 @@ const ContactForm = () => {
 
       if(res.status === 200){
         setLoading(false);
+        setMessage(true);
         reset();
-        alert("문의 글 발송 완료");
       }
     } catch (error) {
       setLoading(false)
@@ -150,7 +150,8 @@ const ContactForm = () => {
       </form>
       <ModalPortal>
         <AlertMessage show={message}>
-          문의 메일이 정상적으로 발송되었습니다. 곧 연락드리겠습니다!
+          문의 메일이 정상적으로 발송되었습니다.
+          <br/>곧 연락드리겠습니다!
         </AlertMessage>
       </ModalPortal>
     </>
