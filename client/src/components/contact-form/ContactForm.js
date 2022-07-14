@@ -15,7 +15,7 @@ const ContactForm = () => {
       name: "",
       phone: "",
       email: "",
-      titile: "",
+      title: "",
       message: ""
     }
   });
