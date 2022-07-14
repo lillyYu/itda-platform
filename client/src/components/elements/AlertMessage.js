@@ -1,4 +1,4 @@
-import 'commons/scss/items/message-item.scss'
+import 'scss/elements/alert-message.scss';
 
 export default function AlertMessage({ show, children}) {
   return (

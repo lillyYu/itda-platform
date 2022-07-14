@@ -7,23 +7,24 @@ import AlertMessage from "components/elements/AlertMessage";
 import ModalPortal from 'utils/modal/ModalPortal';
 
 const ContactForm = () => {
-  const [message, setMessage] = useState(false);
+  const [message, setMessage] = useState(true);
   const [loading, setLoading] = useState(false);
 
   const { register, trigger, handleSubmit, reset, watch, formState: { errors } } = useForm( { mode: "onBlur",
-  defaultValues: {
-    name: "",
-    phone: "",
-    email: "",
-    titile: "",
-    message: ""
-  }});
+    defaultValues: {
+      name: "",
+      phone: "",
+      email: "",
+      titile: "",
+      message: ""
+    }
+  });
 
   const submitHandler = async (data) => {
     setLoading(true)
 
     try {
-      const res = await axios.get('/mail-send', {
+      const res = await axios.put('/mail-send', {
         name: data.name,
         phone: data.phone,
         email: data.email,
@@ -34,7 +35,7 @@ const ContactForm = () => {
       if(res.status === 200){
         setLoading(false);
         reset();
-        alert("문의 글 발송 완료")
+        alert("문의 글 발송 완료");
       }
     } catch (error) {
       setLoading(false)
