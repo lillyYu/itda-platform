@@ -13,7 +13,6 @@ const ContactUs = ({sections}) => {
       <SectionTitle title="CONTACT US" />
 
       <div className="contact-us-wrap">
-
         <address>
           <h3>
             &#60; <span>div</span> <span>className</span> <span> ='ITDA Address'</span> &#47;&#62;

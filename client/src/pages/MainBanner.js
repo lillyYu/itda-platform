@@ -6,10 +6,12 @@ import { Desktop, Mobile } from 'utils/MediaQuery';
 
 const MainBanner = ({sections}) => {
   const [currentSlide, setCurrentSlide] = useState(1);
+  const [aniamtion, setAnimation] = useState(true);
 
   useEffect(()=>{
     const timer = setInterval(() => {
       setCurrentSlide(currentSlide + 1 );
+      setAnimation(true)
 
       if(currentSlide === 3) {
         setCurrentSlide(1)
@@ -24,31 +26,35 @@ const MainBanner = ({sections}) => {
       <div className="main-banner-wrap">
         <div className='banner-scroll'>
           <Desktop>
-            {banners.map((banner) => {
-              return(
-                <figure 
-                  key={banner.id}
-                  className={currentSlide === banner.id ? `active` : undefined}
-                >
-                  <span style={{"color" : banner.color}}>&#60;</span>
-                  <span style={{"color" : banner.color}}>&#47;&#62;</span>
-                  <img src={banner.image} alt="배너 이미지"/>
-                </figure>
-              )
-            })}
+            <div className='banners'>
+              {banners.map((banner) => {
+                return(
+                  <figure 
+                    key={banner.id}
+                    className={currentSlide === banner.id ? `active` : undefined}
+                  >
+                    <span style={{"color" : banner.color}}>&#60;</span>
+                    <span style={{"color" : banner.color}}>&#47;&#62;</span>
+                    <img src={banner.image} alt="배너 이미지"/>
+                  </figure>
+                )
+              })}
+            </div>
           </Desktop>
+
           <ul>
             {
               banners.map((banner) => {
                 return(
                   <li 
                     key={banner.id} 
-                    className={currentSlide === banner.id ? `active ${banner.className}` : undefined }
+                    className={currentSlide === banner.id ? 'active' : undefined }
                   >
                     <div className='progress-bar'>
                       <span 
                         style={{
                           "backgroundColor": banner.color,
+                          "animationName" : aniamtion && "progressing" 
                         }}
                       />
                     </div>
@@ -67,9 +73,11 @@ const MainBanner = ({sections}) => {
   
                     <Mobile>
                       <div className='alignRight'>
-                        <figure>
-                          <img src={banner.image} alt="배너 이미지"/>
-                        </figure>
+                        <div className='banners'>
+                          <figure>
+                            <img src={banner.image} alt="배너 이미지"/>
+                          </figure>
+                        </div>
                       </div>
                     </Mobile>
                     

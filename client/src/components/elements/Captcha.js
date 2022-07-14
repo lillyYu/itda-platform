@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 let code;
 
-const Captcha = ({register, errors, trigger}) => {
+const Captcha = ({register, errors, trigger, watch}) => {
   const captchaImg = useRef();
 
   const createCaptcha = () => {
@@ -60,7 +60,9 @@ const Captcha = ({register, errors, trigger}) => {
           type="text" 
           id="cpatchaText"
           autoComplete="off"
-          className={errors.cpatchaText ? "errorBorder" : undefined}
+          className={
+            watch('cpatchaText') !== "" ? "active" : errors.cpatchaText ? "errorBorder" : ""
+          }
           {...register("cpatchaText", {
             required:"*필수 입력 항목입니다.", 
             validate: {

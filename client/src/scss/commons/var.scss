@@ -39,6 +39,17 @@ $breakpoint-desktop: 1024px;
 $left-bs: -2rem 0px 3rem rgba(0, 0, 0, 0.25);
 
 // fonts styling
+@mixin gradientFont {
+  // grdient color
+  background-image: linear-gradient(to right, $point-blue-color 0%, $point-purple-color 50%, $point-pink-color 100%);
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
 @mixin smallFont {
   font-size: 1.2rem;
   line-height: 1.6rem;

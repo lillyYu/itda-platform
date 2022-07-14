@@ -5,15 +5,22 @@ import { useState } from "react";
 import LoadingSpinner from "components/elements/LoadingSpinner";
 
 const ContactForm = () => {
-  const { register, trigger, handleSubmit, reset, formState: { errors } } = useForm( { mode: "onBlur"});
+  const { register, trigger, handleSubmit, reset, watch, formState: { errors } } = useForm( { mode: "onBlur",
+  defaultValues: {
+    name: "",
+    phone: "",
+    email: "",
+    titile: "",
+    message: ""
+  }});
 
   const [loading, setLoading] = useState(false)
 
   const submitHandler = async (data) => {
     setLoading(true)
-    
+
     try {
-      const res = await axios.post('/mail', {
+      const res = await axios.post('/mail-send', {
         data: {
           name: data.name,
           phone: data.phone,
@@ -23,7 +30,7 @@ const ContactForm = () => {
         }
       })
 
-      if(res.data.code === 200){
+      if(res.status === 200){
         setLoading(false);
         reset();
         alert('문의 메일이 정상적으로 발송되었습니다. 곧 연락드리겠습니다!')
@@ -37,9 +44,7 @@ const ContactForm = () => {
   return (
     loading ? <div className="alignCenter"><LoadingSpinner /></div>
     :
-    <form 
-      onSubmit={handleSubmit(submitHandler)}
-    >
+    <form onSubmit={handleSubmit(submitHandler)}>
       <h3>
         &#60; <span>div</span> <span>className</span> <span> ='ask to ITDA'</span> &#47;&#62;
       </h3>
@@ -49,7 +54,9 @@ const ContactForm = () => {
           <input 
             type="text" 
             id="name"
-            className={errors.name ? "errorBorder" : undefined}
+            className={
+              watch('name') !== "" ? "active" : errors.name ? "errorBorder" : ""
+            }
             autoComplete="off"
             {...register("name", { required: true })}
           />
@@ -61,7 +68,9 @@ const ContactForm = () => {
           <input 
             type="phone" 
             id="phone"
-            className={errors.phone ? "errorBorder" : undefined}
+            className={
+              watch('phone') !== "" ? "active" : errors.phone ? "errorBorder" : ""
+            }
             autoComplete="off"
             {...register("phone", {
               required:"*필수 입력 항목입니다.", 
@@ -78,7 +87,9 @@ const ContactForm = () => {
           <input 
             type="text" 
             id="email"
-            className={errors.email ? "errorBorder" : undefined}
+            className={
+              watch('email') !== "" ? "active" : errors.email ? "errorBorder" : ""
+            }
             autoComplete="off"
             {...register("email", {
               required:"*필수 입력 항목입니다.", 
@@ -95,7 +106,9 @@ const ContactForm = () => {
           <input 
             type="text" 
             id="title"
-            className={errors.title ? "errorBorder" : undefined}
+            className={
+              watch('title') !== "" ? "active" : errors.title ? "errorBorder" : ""
+            }
             autoComplete="off"
             {...register("title", { required: true })}
           />
@@ -105,7 +118,10 @@ const ContactForm = () => {
 
         <div className="inputLabel">
           <textarea 
-            id="message"  
+            id="message"
+            className={
+              watch('message') !== "" ? "active" : ""
+            }
             {...register("message")}
           />
           <label htmlFor="message">other message</label>
@@ -116,6 +132,7 @@ const ContactForm = () => {
         register={register}
         errors={errors}
         trigger={trigger}
+        watch={watch}
       />
 
       <div className="alignCenter">

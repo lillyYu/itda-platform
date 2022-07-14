@@ -36,7 +36,7 @@ const OurWork = ({sections}) => {
         <article>
           <ModalPortal>
             <Modal 
-              show={modal} 
+              show={modal}
               handleModalShow={handleModalShow}
               setImgIndex={setImgIndex}
             >

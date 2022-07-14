@@ -2,10 +2,13 @@
 
 .our-business {
   @include height();
-  @include paddingInline();
   position: relative;
   width: 100%;
   margin-top: 6rem;
+
+  @include desktop {
+    @include paddingInline();
+  }
 
   .our-business-wrap {
     display: flex;

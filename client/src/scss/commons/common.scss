@@ -137,6 +137,8 @@ textarea {
     }
   }
 
+  input.active,
+  textarea.active,
   input:focus,
   textarea:focus {
     &~label {
