@@ -4,6 +4,7 @@
   @include height();
   position: relative;
   width: 100%;
+  margin-top: 6rem;
 
   .our-business-wrap {
     display: flex;
@@ -11,8 +12,16 @@
     justify-content: space-between;
     height: 100%;
 
+    h2 {
+      margin-bottom: 4rem;
+    }
+
     @include desktop {
       @include webMargin();
+
+      h2 {
+        margin-bottom: 6rem;
+      }
     }
 
     article {
@@ -28,41 +37,26 @@
           height: 100%;
           flex: 1;
 
-          h2 {
-            margin-bottom: 6rem;
-          }
+          header {
+            display: flex;
+            height: 20rem;
+            padding-top: 4.2rem;
 
-          &>div {
-            padding-top: 1rem;
+            &>span {
+              @include mediumFont();
+              margin-right: 1rem;
+              color: $opacity-white-60;
+            }
 
-            header {
-              display: flex;
-              min-height: 20rem;
-
-              &:nth-child(1) {
-                margin: 1rem 0 0;
-              }
-
-              &:nth-child(2) {
-                margin: 1.5rem 0 0;
-              }
-
-              &>span {
-                @include mediumFont();
-                margin-right: 1rem;
-                color: $opacity-white-60;
-              }
-
-              p {
-                strong {
-                  margin-right: 0.6rem;
-                }
+            p {
+              strong {
+                margin-right: 0.6rem;
               }
             }
           }
         }
 
-        &>ul {
+        ul {
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -70,6 +64,9 @@
           height: 100%;
 
           li {
+            justify-content: flex-start;
+            padding-top: 4rem;
+
             &>p {
               @include webFont();
               padding-left: 17%;
@@ -85,11 +82,12 @@
 
         li {
           display: flex;
-          justify-content: center;
           flex-direction: column;
           min-height: 20rem;
 
           @include mobile {
+            justify-content: center;
+
             &:nth-child(2) {
               box-shadow: $left-bs;
             }
@@ -116,7 +114,7 @@
           @include mobile {
             &>p {
               @include mobFont();
-              padding-left: 5%;
+              padding-inline: 5%;
             }
           }
         }

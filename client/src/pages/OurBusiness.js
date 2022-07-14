@@ -10,30 +10,24 @@ const OurBusiness = ({sections}) => {
       ref={(el)=>sections.current[1]=el}
     >
       <div className='our-business-wrap'>
-        <Mobile>
-          <SectionTitle title="OUR BUSINESS" />
-        </Mobile>
+        <SectionTitle title="OUR BUSINESS" />
 
         <article>
           <Desktop>
             <div className='print'>
-              <SectionTitle title="OUR BUSINESS" />
-
-              <div>
-                {
-                  ourBusiness.map((business) => {
-                    return(
-                      <header key={business.id}>
-                        <span>0{business.id}</span>
-                        <p>
-                          <strong style={{color: business.color}}>print</strong>
-                          <span>('{business.title}')</span>
-                        </p>
-                      </header>
-                    )
-                  })
-                }
-              </div>
+              {
+                ourBusiness.map((business) => {
+                  return(
+                    <header key={business.id}>
+                      <span>0{business.id}</span>
+                      <p>
+                        <strong style={{color: business.color}}>print</strong>
+                        <span>('{business.title}')</span>
+                      </p>
+                    </header>
+                  )
+                })
+              }
             </div>
           </Desktop>
           
