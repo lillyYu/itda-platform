@@ -20,16 +20,14 @@
     height: 100%;
 
     nav {
-      
-
       &>ul {
         li {
           padding: 2rem 0;
 
           cursor: pointer;
           font-size: 1.6rem;
-          font-family: $bold-ff;
           text-align: center;
+          font-weight: bold;
 
           background: linear-gradient(to right, $point-blue-color 0%, $point-purple-color 50%, $point-pink-color 100%);
           background-size: 200% 200%;
@@ -40,7 +38,7 @@
           animation: rainbow 2s ease-in-out infinite;
 
           text-transform: uppercase;
-          transition: color .3s ease-in-out;
+          transition: color 0.3s ease-in-out;
 
           &:hover {
             color: rgba(0, 0, 0, 0);
@@ -56,7 +54,7 @@
         a {
           cursor: pointer;
           font-size: 1.4rem;
-          font-family: $bold-ff;
+          font-weight: bold;
           text-align: center;
 
           @include button();

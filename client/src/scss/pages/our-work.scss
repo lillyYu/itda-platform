@@ -69,10 +69,9 @@
               background-color: $opacity-white-60;
 
               em {
-                font-family: $bold-ff;
-                font-style: normal;
-
                 @include gradientFont();
+                font-style: normal;
+                font-weight: bold;
               }
             }
           }
