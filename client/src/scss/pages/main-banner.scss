@@ -2,12 +2,13 @@
 
 .main-banner {
   @include height();
-
   position: relative;
   width: 100vw;
   height: 100%;
-  padding: 3rem 0;
+  padding-top: 3rem;
   z-index: -1;
+
+  border: 1px solid chartreuse;
 
   &::before {
     position: absolute;
@@ -111,6 +112,7 @@
         }
 
         li {
+          @include paddingInline();
           opacity: 0;
           position: absolute;
           width: 100%;

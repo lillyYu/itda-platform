@@ -2,8 +2,8 @@
 
 .contact-us {
   @include height();
-  @include webMargin();
-  padding: 3rem 5%;
+  @include paddingInline();
+  padding-top: 3rem;
 
   h2 {
     margin-bottom: 6rem;
@@ -11,8 +11,10 @@
 
   .contact-us-wrap {
     @include desktop {
+      @include webMargin();
       display: flex;
       justify-content: space-between;
+      gap: 0 8rem;
 
       &>* {
         flex: 1;
@@ -23,7 +25,7 @@
       }
 
       form {
-        max-width: 50rem;
+        max-width: 60rem;
       }
     }
 

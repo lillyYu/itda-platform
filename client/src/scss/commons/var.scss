@@ -89,8 +89,12 @@ $left-bs: -2rem 0px 3rem rgba(0, 0, 0, 0.25);
 
 // mixin
 // aligns
-@mixin mobPadding {
-  padding: 0 5%;
+@mixin paddingInline {
+  padding-inline: 5%;
+
+  @include desktop {
+    padding-inline: 10%;
+  }
 }
 
 @mixin webMargin {

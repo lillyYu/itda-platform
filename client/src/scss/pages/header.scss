@@ -1,11 +1,13 @@
 @import 'scss/commons/var';
 
 .header {
+  @include paddingInline();
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 6rem;
+  
   background: $opacity-white-10;
   backdrop-filter: blur(4px);
   z-index: 998;

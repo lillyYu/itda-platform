@@ -2,11 +2,12 @@
 
 .our-work {
   @include height();
-  @include webMargin();
-  padding: 3rem 5%;
+  @include paddingInline();
+  padding-top: 3rem;
 
   .our-work-wrap {
     @include desktop {
+    @include webMargin();
       padding-top: 3rem;
     }
 
