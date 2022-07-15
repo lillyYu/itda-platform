@@ -1,4 +1,4 @@
-import 'scss/pages/our-business.scss';
+import 'scss/pages/landing/our-business.scss';
 import ourBusiness from 'data/our-business.json';
 import { Desktop } from 'utils/MediaQuery';
 import SectionTitle from 'components/elements/SectionTitle';

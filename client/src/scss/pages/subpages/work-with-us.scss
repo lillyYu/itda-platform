@@ -1,0 +1,11 @@
+@import 'scss/commons/var';
+
+.work-with-us {
+  position: relative;
+  padding-top: 8rem;
+  min-height: 100vh;
+
+  .work-with-us-wrap {
+    @include webMargin();
+  }
+}

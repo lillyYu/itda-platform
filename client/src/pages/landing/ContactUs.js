@@ -1,5 +1,5 @@
 import SectionTitle from "components/elements/SectionTitle"
-import 'scss/pages/contact-us.scss';
+import 'scss/pages/landing/contact-us.scss';
 import pdf from 'images/itdaCompanyInfo.pdf'
 import ContactForm from "components/contact-form/ContactForm";
 

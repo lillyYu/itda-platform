@@ -1,4 +1,4 @@
-import 'scss/pages/main-banner.scss';
+import 'scss/pages/landing/main-banner.scss';
 import banners from 'data/main-banner.json'
 import { useState } from 'react';
 import { useEffect } from 'react';

@@ -23,6 +23,7 @@
 @include desktop {
   .footer {
     @include paddingInline();
+    position: relative;
     height: 10rem;
     margin-top: 4rem;
     background-color: #222;

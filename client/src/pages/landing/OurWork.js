@@ -1,5 +1,5 @@
 import SectionTitle from 'components/elements/SectionTitle';
-import 'scss/pages/our-work.scss';
+import 'scss/pages/landing/our-work.scss';
 import ourWorks from 'data/our-work.json'
 import { useState } from 'react';
 import ModalPortal from 'utils/modal/ModalPortal';
