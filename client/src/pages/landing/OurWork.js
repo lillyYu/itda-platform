@@ -4,7 +4,7 @@ import ourWorks from 'data/our-work.json'
 import { useState } from 'react';
 import ModalPortal from 'utils/modal/ModalPortal';
 import Modal from 'utils/modal/Modal';
-import OurWorkDetail from './details/OurWorkDetail';
+import OurWorkDetail from 'pages/details/OurWorkDetail';
 
 const OurWork = ({sections}) => {
   const [endPoint, setEndPoint] = useState(3);

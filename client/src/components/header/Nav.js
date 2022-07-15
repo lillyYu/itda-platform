@@ -1,18 +1,22 @@
 import Footer from "pages/Footer"
 import { Mobile } from "utils/MediaQuery"
+import { Link, NavLink } from "react-router-dom";
 
 const Nav = ({navActive, handleScroll}) => {
   return (
     <nav className={navActive ? "active" : undefined}>
       <ul>
         <li onClick={() => handleScroll(1)}>
-          OUR BUSINESS
+          <Link to="/">OUR BUSINESS</Link>
         </li>
         <li onClick={() => handleScroll(2)}>
-          OUR WORK
+          <Link to="/">OUR WORK</Link>
         </li>
         <li onClick={() => handleScroll(3)}>
-          CONTACT US
+          <Link to="/">CONTACT US</Link>
+        </li>
+        <li>
+          <NavLink to="/with-us" activeclassname="active" >WORK WITH US</NavLink>
         </li>
       </ul>
       
