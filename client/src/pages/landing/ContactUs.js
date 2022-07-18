@@ -3,8 +3,20 @@ import 'scss/pages/landing/contact-us.scss';
 import pdf from 'images/itdaCompanyInfo.pdf'
 import ContactForm from "components/contact-form/ContactForm";
 import Map from "components/contact-form/Map";
+import CopyToClipboard from "react-copy-to-clipboard";
+import { useEffect, useState } from "react";
+import ModalPortal from "utils/modal/ModalPortal";
+import AlertMessage from "components/elements/AlertMessage";
 
 const ContactUs = ({sections}) => {
+  const [message, setMessage] = useState(false);
+
+  useEffect(() => {
+    if (message) {
+      setTimeout(() => setMessage(false), 3000);
+    }
+  }, [message]);
+
   return (
     <section 
       className="contact-us"
@@ -41,10 +53,20 @@ const ContactUs = ({sections}) => {
             
             <li>
               <i className="ri-map-pin-2-line blue"/>
-              <p>
-                <span>서울특별시 서초구 서초중앙로 20길 33-17</span>
-                <span>서초빌리지 1, 202호</span>
-              </p>
+              <CopyToClipboard
+                text={"서울특별시 서초구 서초중앙로 20길 33-17, 서초빌리지 1, 202호"}
+                onCopy={() => setMessage(true)}
+              >
+                <p>
+                  <span>서울특별시 서초구 서초중앙로 20길 33-17</span>
+                  <span>서초빌리지 1, 202호</span>
+                </p>
+              </CopyToClipboard>
+              <ModalPortal>
+                <AlertMessage show={message}>
+                  클립보드에 복사되었습니다!
+                </AlertMessage>
+              </ModalPortal>
             </li>
             
             <li>
