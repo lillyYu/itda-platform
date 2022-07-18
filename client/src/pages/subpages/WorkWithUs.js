@@ -8,7 +8,9 @@ const WorkWithUs = () => {
         <SectionTitle title="WORK WITH US" />
 
         <article>
-          
+          <header>requre ('자신의 COLOR✨를 잃지 않는 팀웍')</header>
+
+          <main></main>
         </article>
       </div>
     </section>
