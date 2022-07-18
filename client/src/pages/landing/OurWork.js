@@ -1,14 +1,15 @@
 import SectionTitle from 'components/elements/SectionTitle';
 import 'scss/pages/landing/our-work.scss';
-import ourWorks from 'data/our-work.json'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ModalPortal from 'utils/modal/ModalPortal';
 import Modal from 'utils/modal/Modal';
 import OurWorkDetail from 'pages/details/OurWorkDetail';
+import axios from 'axios';
 
 const OurWork = ({sections}) => {
   const [endPoint, setEndPoint] = useState(3);
   const [workIndex, setWorkIndex] = useState(0);
+  const [ourWorks, setOurWorks] = useState([])
 
   const [modal, setModal] = useState(false);
   const [imgIndex, setImgIndex] = useState(1);
@@ -23,8 +24,20 @@ const OurWork = ({sections}) => {
     }
   }
 
-  const workData = ourWorks[workIndex];
+  const getOurWorks = async () => {
+    try {
+      const res = await axios.get(`/api/v1/our-work?page=1&size=4`);
+      setOurWorks(res.data)
+      console.log(res);
+    } catch (error) {
+      
+    }
+  }
 
+  useEffect(() => {
+    getOurWorks()
+  }, [])
+  
   return (
     <section 
       className="our-work" 
@@ -34,40 +47,43 @@ const OurWork = ({sections}) => {
         <SectionTitle title="OUR WORK" />
 
         <article>
-          <ModalPortal>
-            <Modal 
-              show={modal}
-              handleModalShow={handleModalShow}
-              setImgIndex={setImgIndex}
-            >
-              <div className='work-detail'>
-                <span onClick={() => {
-                    setModal(false);
-                    setImgIndex(1);
-                  }}>
-                  <i className="ri-close-line"/>
-                </span>
-
-                <OurWorkDetail 
-                  workData={workData}
+          {
+            modal &&
+              <ModalPortal>
+                <Modal 
+                  show={modal}
+                  handleModalShow={handleModalShow}
                   setImgIndex={setImgIndex}
-                  imgIndex={imgIndex}
-                />
-              </div>
-            </Modal>
-          </ModalPortal>
+                >
+                  <div className='work-detail'>
+                    <span onClick={() => {
+                        setModal(false);
+                        setImgIndex(1);
+                      }}>
+                      <i className="ri-close-line"/>
+                    </span>
+    
+                    <OurWorkDetail 
+                      workIndex={workIndex}
+                      setImgIndex={setImgIndex}
+                      imgIndex={imgIndex}
+                    />
+                  </div>
+                </Modal>
+              </ModalPortal>
+          }
           
           <ul>
             {
-              ourWorks.slice(0, endPoint).map((work, index) => {
+              ourWorks.map((work, index) => {
                 return (
                   <li 
-                    key={work.id}
+                    key={work.our_work_key}
                     data-aos="fade-up"
                     data-aos-delay={`${(index % 3) * 2}00`}
                     onClick={
                       () => {
-                        setWorkIndex(work.id - 1)
+                        setWorkIndex(work.our_work_key)
                         setModal(true)
                       }
                     }
@@ -76,7 +92,7 @@ const OurWork = ({sections}) => {
                       <span><em>DETAIL</em></span>
                     </div>
                     <figure>
-                      <img src={work.image[0]} alt={`${work.title} thumbnail`}/>
+                      <img src={`${process.env.REACT_APP_GET_FILE}${work.thumbnail_file_path}/${work.thumbnail_temp_file_name}`} alt={`${work.title} thumbnail`}/>
                     </figure>
                   </li>
                 )

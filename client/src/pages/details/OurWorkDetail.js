@@ -1,25 +1,50 @@
 import 'scss/pages/details/our-work-detail.scss';
 import tags from 'data/work-detail-tags.json';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const OurWorkDetail = ({
-  workData,
+  workIndex,
   setImgIndex,
   imgIndex
 }) => {
+  const [workDetail, setWorkDetail] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  console.log(workIndex, "workIndex")
+
+  useEffect(() => {
+    const getWorkDetail = async () => {
+      setLoading(true);
+      try {
+        const res = await axios.get(`/api/v1/our-work/${workIndex}`);
+        setWorkDetail(res.data)
+        console.log(res, ":ddd");
+        setLoading(false);
+      } catch (error) {
+        console.log(error)
+        setLoading(false);
+      }
+    }
+
+    getWorkDetail()
+  }, [workIndex])
+
+  console.log(workDetail)
 
   return (
     <>
-      <header>{workData.title}</header>
+      <header>{workDetail?.ourWork.title}</header>
   
       <div className='work-detail-wrap'>
         <div className='work-detail-left'>
           <div className='gallery'>
             <div className='gallery-wrap'>
               <ul 
-                style={{"width": `${workData.image.length}00%`, "right":`${imgIndex - 1}00%`}}
+                style={{"width": `${workDetail?.ourWorkImgList.length}00%`, "right":`${imgIndex - 1}00%`}}
               >
                 {
-                  workData.image.map((src, index) => {
+                  workDetail?.image.map((src, index) => {
                     return (
                       <li key={index}>
                         <figure>
@@ -37,20 +62,20 @@ const OurWorkDetail = ({
             <i 
               className="ri-arrow-left-s-line"
               onClick={() => {
-                if(workData.image.length >= imgIndex && imgIndex > 1) {
+                if(workDetail?.image.length >= imgIndex && imgIndex > 1) {
                   setImgIndex(imgIndex - 1)
                 }
               }}
             />
   
             <span>
-              <strong>{imgIndex}</strong> / {workData.image.length}
+              <strong>{imgIndex}</strong> / {workDetail?.ourWorkImgList.length}
             </span>
   
             <i 
               className="ri-arrow-right-s-line"
               onClick={() => {
-                if(workData.image.length > imgIndex) {
+                if(workDetail?.ourWorkImgList.length > imgIndex) {
                   setImgIndex(imgIndex + 1)
                 }
               }}
@@ -62,18 +87,18 @@ const OurWorkDetail = ({
           <ul>
             <li className='time-spent'>
               <em>개발 기간</em>
-              <p>{workData.timeSpent}</p>
+              <p>{workDetail?.ourWork.work_timespent}</p>
             </li>
   
             <li className='range'>
               <em>개발 범위</em>
               <ul className='range'>
                 {
-                  tags[0].range.map((range, i) => {
+                  tags[0].range.map((range) => {
                     return(
                       <li 
                         key={range.id}
-                        className={ workData.range.includes(range.id) ? "active" : undefined }
+                        className={ workDetail?.ourWork.work_range.includes(range.id) ? "active" : undefined }
                       >
                         {range.name}
                       </li>
@@ -87,11 +112,11 @@ const OurWorkDetail = ({
               <em>OS</em>
               <ul className='os'>
                 {
-                  tags[1].os.map((os, i) => {
+                  tags[1].os.map((os) => {
                     return(
                       <li 
                         key={os.id}
-                        className={ workData.os.includes(os.id) ? "active" : undefined }
+                        className={ workDetail?.ourWork.work_os.includes(os.id) ? "active" : undefined }
                       >{os.name}</li>
                     )
                   })
@@ -103,11 +128,11 @@ const OurWorkDetail = ({
               <em>개발 언어</em>
               <ul className='lang'>
                 {
-                  tags[2].lang.map((lang, i) => {
+                  tags[2].lang.map((lang) => {
                     return(
                       <li 
                         key={lang.id}
-                        className={ workData.lang.includes(lang.id)  ? "active" : undefined }
+                        className={ workDetail?.ourWork.work_lang.includes(lang.id)  ? "active" : undefined }
                       >{lang.name}</li>
                     )
                   })
@@ -118,8 +143,7 @@ const OurWorkDetail = ({
             <li>
               <em>상세 설명</em>
               <p>
-                악기 연습실/합주실을 찾아주는 서비스
-                연습공간을 소유하고 있는 유저가 등록을 하고 연습하려는 유저가 해당 공간에 대한 가격과 일정을 예약하여 이용해주는 플랫폼
+                {workDetail?.ourWork.content}
               </p>
             </li>
           </ul>
