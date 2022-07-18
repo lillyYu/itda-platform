@@ -45,6 +45,7 @@ const Header = ({
             navActive={navActive} 
             handleScroll={handleScroll}
             setNavActive={setNavActive}
+            setOpen={setOpen}
           />
         </Mobile>
 

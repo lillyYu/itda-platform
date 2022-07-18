@@ -45,25 +45,15 @@ const WorkWithUs = () => {
   return (
     <section className="work-with-us">
       <div className="work-with-us-wrap">
-        <SectionTitle title="WORK WITH US" />
 
         <article>
           <main>
+            <SectionTitle title="WORK WITH US" />
+
             <header><em>require</em> ('자신의 COLOR✨를 잃지 않는 팀웍')</header>
 
             <ul>
-              {
-                workWithUsBanners.map((banner) => {
-                  return(
-                    <li 
-                      key={banner.id}
-                      className={currentSlide === banner.id ? `active` : undefined}
-                    >
-                      {banner.content}
-                    </li>
-                  )
-                })
-              }
+              <li>{workWithUsBanners[currentSlide].content}</li>
             </ul>
           </main>
 
@@ -71,9 +61,11 @@ const WorkWithUs = () => {
             <div className="noti">
               <p>✍ 지원서 양식은 자신을 표현할 수 있는 형태로 자유롭게 보내주세요!</p>
               <p>
-                <CopyToClipboard text={"dev@itdadev.com"}
-                  onCopy={() => setMessage(true)}>
-                  <span>👉dev@itdadev.com👈</span>
+                <CopyToClipboard 
+                  text={"dev@itdadev.com"}
+                  onCopy={() => setMessage(true)}
+                >
+                  <span>👉 dev@itdadev.com 👈</span>
                 </CopyToClipboard>
               </p>
 

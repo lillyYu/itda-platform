@@ -1,4 +1,3 @@
-
 const Banner1 = () => {
   return (
     <>

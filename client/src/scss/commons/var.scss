@@ -42,13 +42,30 @@ $left-bs: -2rem 0px 3rem rgba(0, 0, 0, 0.25);
 // fonts styling
 @mixin gradientFont {
   // grdient color
-  background-image: linear-gradient(to right, $point-blue-color 0%, $point-purple-color 50%, $point-pink-color 100%);
+  background-image: linear-gradient(to right, $point-blue-color, $point-purple-color, $point-pink-color);
   background-size: 100%;
   background-repeat: repeat;
+  font-weight: bold;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+  background-position: center center;
+  animation: 2s ease-in-out infinite;
+}
+
+@mixin grientFontAnimate {
+  background: linear-gradient(to right, $point-blue-color 0%, $point-purple-color 50%, $point-pink-color 100%);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  color: rgba(255, 255, 255, 1);
+  font-weight: bold;
+
+  animation: rainbow 2s ease-in-out infinite;
+  transition: all 0.3s ease-in-out;
 }
 
 @mixin smallFont {
@@ -186,5 +203,19 @@ $left-bs: -2rem 0px 3rem rgba(0, 0, 0, 0.25);
 @mixin desktop {
   @media (min-width: #{$breakpoint-desktop}) {
     @content;
+  }
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: left
+  }
+
+  50% {
+    background-position: right
+  }
+
+  100% {
+    background-position: left
   }
 }

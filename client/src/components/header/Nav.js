@@ -5,7 +5,8 @@ import { Link, NavLink } from "react-router-dom";
 const Nav = ({
   navActive, 
   handleScroll, 
-  setNavActive
+  setNavActive,
+  setOpen
 }) => {
   return (
     <nav className={navActive ? "active" : undefined}>
@@ -19,7 +20,7 @@ const Nav = ({
         <li onClick={() => handleScroll(3)}>
           <Link to="/">CONTACT US</Link>
         </li>
-        <li onClick={() => setNavActive(false)}>
+        <li onClick={() => {setNavActive(false); setOpen(false);}}>
           <NavLink to="/with-us" activeclassname="active" >WORK WITH US</NavLink>
         </li>
       </ul>

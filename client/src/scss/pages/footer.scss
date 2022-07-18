@@ -2,6 +2,7 @@
 
 @include mobile {
   .footer {
+    top: 6rem;
     .footer-wrap {
       ul {
         @include flexCenterColumn();
@@ -25,6 +26,7 @@
     @include paddingInline();
     position: relative;
     height: 10rem;
+    top: 8rem;
     margin-top: 4rem;
     background-color: #222;
 

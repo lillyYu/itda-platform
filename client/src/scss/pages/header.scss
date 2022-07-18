@@ -27,19 +27,9 @@
           cursor: pointer;
 
           a {
+            @include grientFontAnimate();
             font-size: 1.6rem;
-            font-weight: bold;
-
-            background: linear-gradient(to right, $point-blue-color 0%, $point-purple-color 50%, $point-pink-color 100%);
-            background-size: 200% 200%;
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: rgba(255, 255, 255, 1);
-
-            animation: rainbow 2s ease-in-out infinite;
-
             text-transform: uppercase;
-            transition: color 0.3s ease-in-out;
 
             &:hover,
             &.active {
@@ -136,19 +126,5 @@
         }
       }
     }
-  }
-}
-
-@keyframes rainbow {
-  0% {
-    background-position: left
-  }
-
-  50% {
-    background-position: right
-  }
-
-  100% {
-    background-position: left
   }
 }
