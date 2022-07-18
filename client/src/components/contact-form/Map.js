@@ -1,9 +1,10 @@
-import { NaverMap, RenderAfterNavermapsLoaded } from 'react-naver-maps';
+import { Marker, NaverMap, RenderAfterNavermapsLoaded } from 'react-naver-maps';
+import anchor from 'images/anchor.svg'
 
 const Map = () => {
   return (
     <RenderAfterNavermapsLoaded
-      ncpClientId={"oh6f4evch1"}
+      ncpClientId={process.env.REACT_APP_MAP_CLIENT_ID}
       error={<p>Maps Load Error</p>}
       loading={<p>Maps Loading...</p>}
     >
@@ -13,6 +14,14 @@ const Map = () => {
         defaultZoom={17}
         zoomControl={true}
       >
+        <Marker
+          icon={anchor}
+          position={{ lat: 37.492708, lng: 127.015470 }}
+          animation={2}
+          // onClick={() => {
+          //   alert('hello');
+          // }}
+        />
       </NaverMap>
     </RenderAfterNavermapsLoaded>
   );

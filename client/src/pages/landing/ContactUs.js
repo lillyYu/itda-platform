@@ -2,6 +2,7 @@ import SectionTitle from "components/elements/SectionTitle"
 import 'scss/pages/landing/contact-us.scss';
 import pdf from 'images/itdaCompanyInfo.pdf'
 import ContactForm from "components/contact-form/ContactForm";
+import Map from "components/contact-form/Map";
 
 const ContactUs = ({sections}) => {
   return (
@@ -18,7 +19,7 @@ const ContactUs = ({sections}) => {
           </h3>
 
           <div className="naver-map">
-            {/* <Map/> */}
+            <Map/>
           </div>
 
           <ul>
