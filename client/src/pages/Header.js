@@ -3,7 +3,6 @@ import Nav from "components/header/Nav";
 import 'scss/pages/header.scss';
 import { Twirl as Hamburger } from 'hamburger-react'
 import { Desktop, Mobile } from "utils/MediaQuery";
-import { Link } from "react-router-dom";
 
 const Header = ({
   handleScroll, 
@@ -41,23 +40,28 @@ const Header = ({
               handleScroll={handleScroll}
             />
           </div>
+
           <Nav 
             navActive={navActive} 
             handleScroll={handleScroll}
             setNavActive={setNavActive}
             setOpen={setOpen}
           />
+          
         </Mobile>
 
         <Desktop>
-          <Link to="/">
-            <Logo
-              width='80'
-              handleScroll={handleScroll}
-            /> 
-          </Link>
+          <Logo
+            width='80'
+            handleScroll={handleScroll}
+          /> 
 
-          <Nav handleScroll={handleScroll}/>
+          <Nav 
+            navActive={navActive} 
+            handleScroll={handleScroll}
+            setNavActive={setNavActive}
+            setOpen={setOpen}
+          />
         </Desktop>
       </div>
     </header>

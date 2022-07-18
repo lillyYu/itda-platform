@@ -3,9 +3,10 @@
 .work-with-us {
   position: relative;
   padding-top: 3rem;
+  @include paddingInline();
 
   @include desktop {
-    padding-top: 8rem;
+    padding-top: 6rem;
   }
 
   .work-with-us-wrap {
@@ -45,6 +46,7 @@
           @include webMargin();
           position: relative;
           min-height: 30rem;
+
           @include desktop {
             margin-top: 3rem;
           }
@@ -127,23 +129,28 @@
 
         ul {
           li {
-            border-top: 1px solid $opacity-white-20;
-            border-bottom: 1px solid $opacity-white-20;
-
             .accordionSection {
+              position: relative;
+              border-top: 1px solid $opacity-white-10;
+              border-bottom: 1px solid $opacity-white-10;
+              transition: all 0.3s;
+
               &.active {
-                box-shadow: $left-bs;
+                border: none;
+                box-shadow: $left-right-bs;
+                z-index: 20;
               }
 
               .accordion {
                 width: 100%;
+                background-color: transparent;
 
-                p {
+                .accordionTitle {
                   @include flexCenterBetween();
                   width: 100%;
                   padding: 3rem 2rem;
                   color: white;
-                  background-color: $base-black-color;
+                  cursor: pointer;
                 }
               }
 

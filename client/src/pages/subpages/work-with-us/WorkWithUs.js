@@ -61,11 +61,11 @@ const WorkWithUs = () => {
             <div className="noti">
               <p>✍ 지원서 양식은 자신을 표현할 수 있는 형태로 자유롭게 보내주세요!</p>
               <p>
-                <CopyToClipboard 
+                <CopyToClipboard
                   text={"dev@itdadev.com"}
                   onCopy={() => setMessage(true)}
                 >
-                  <span>👉 dev@itdadev.com 👈</span>
+                  <span>👉 <u>dev@itdadev.com</u> 👈</span>
                 </CopyToClipboard>
               </p>
 

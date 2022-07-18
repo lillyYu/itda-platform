@@ -26,15 +26,13 @@
           text-align: center;
           cursor: pointer;
 
-          a {
-            @include grientFontAnimate();
-            font-size: 1.6rem;
-            text-transform: uppercase;
+          @include grientFontAnimate();
+          font-size: 1.6rem;
+          text-transform: uppercase;
 
-            &:hover,
-            &.active {
-              color: rgba(0, 0, 0, 0);
-            }
+          &:hover,
+          &.active {
+            color: rgba(0, 0, 0, 0);
           }
         }
       }

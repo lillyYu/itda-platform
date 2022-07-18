@@ -6,12 +6,13 @@ import 'scss/commons/master.scss';
 import { Desktop } from "utils/MediaQuery";
 import "aos/dist/aos.css";
 import Aos from "aos";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Landing from "Landing";
 import WorkWithUs from "pages/subpages/work-with-us/WorkWithUs";
 
 function App() {
   const sections = useRef([]);
+  const navigate = useNavigate();
 
   const [navActive, setNavActive] = useState(false);
   const [isOpen, setOpen] = useState(false);
@@ -20,6 +21,7 @@ function App() {
     setNavActive(false);
     setOpen(false);
 
+    navigate('/')
     sections.current[index]?.scrollIntoView({
       behavior: 'smooth'
     });
@@ -36,26 +38,24 @@ function App() {
   })
   
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Header 
-          handleScroll={handleScroll} 
-          navActive={navActive}
-          setNavActive={setNavActive}
-          isOpen={isOpen}
-          setOpen={setOpen}
-        />
+    <div className="App">
+      <Header 
+        handleScroll={handleScroll} 
+        navActive={navActive}
+        setNavActive={setNavActive}
+        isOpen={isOpen}
+        setOpen={setOpen}
+      />
 
-        <main className="main-contents">
-          <Routes>
-            <Route path="/" element={<Landing sections={sections}/>} />
-            <Route path="/with-us" element={<WorkWithUs />} />
-          </Routes>
-        </main>
+      <main className="main-contents">
+        <Routes>
+          <Route path="/" element={<Landing sections={sections}/>} />
+          <Route path="/with-us" element={<WorkWithUs />} />
+        </Routes>
+      </main>
 
-        <Desktop><Footer/></Desktop>
-      </div>
-    </BrowserRouter>
+      <Desktop><Footer/></Desktop>
+    </div>
   );
 }
 

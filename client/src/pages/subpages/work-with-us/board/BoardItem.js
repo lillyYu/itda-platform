@@ -18,12 +18,12 @@ const BoardItem = ({
 
   return (
     <div className={`accordionSection ${setActive}`}>
-      <button className="accordion" onClick={toggleAccordion}>
+      <div className="accordion" onClick={toggleAccordion}>
         <p className="accordionTitle">
           <strong>{data.title}</strong>
           <time>{data.from} ~ {data.to}</time>
         </p>
-      </button>
+      </div>
 
       <div
         ref={content}
