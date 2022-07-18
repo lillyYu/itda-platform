@@ -23,7 +23,7 @@ const WorkWithUs = () => {
       content: <Banner2/>
     }
   ]
-  
+
   useEffect(()=>{
     const timer = setInterval(() => {
       setCurrentSlide(currentSlide + 1 );
@@ -31,7 +31,7 @@ const WorkWithUs = () => {
       if(currentSlide === 1) {
         setCurrentSlide(0)
       }
-    }, 5000);
+    }, 6000);
 
     return () => clearInterval(timer);
   });
@@ -90,10 +90,7 @@ const WorkWithUs = () => {
                   return(
                     <li key={datas.id}>
                       <BoardItem
-                        title={datas.title}
-                        html={datas.content}
-                        from={datas.from}
-                        to={datas.to}
+                        data={datas}
                       />
                     </li>
                   )

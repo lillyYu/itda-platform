@@ -1,10 +1,7 @@
 import { useRef, useState } from "react";
 
 const BoardItem = ({
-  title, 
-  html,
-  from,
-  to
+  data
 }) => {
   const content = useRef(null);
 
@@ -13,7 +10,7 @@ const BoardItem = ({
 
   function toggleAccordion() {
     setActiveState(setActive === "" ? "active" : "");
-    
+
     setHeightState(
       setActive === "active" ? "0px" : `${content.current.scrollHeight}px`
     );
@@ -23,8 +20,8 @@ const BoardItem = ({
     <div className={`accordionSection ${setActive}`}>
       <button className="accordion" onClick={toggleAccordion}>
         <p className="accordionTitle">
-          <strong>{title}</strong>
-          <time>{from} ~ {to}</time>
+          <strong>{data.title}</strong>
+          <time>{data.from} ~ {data.to}</time>
         </p>
       </button>
 
@@ -34,7 +31,7 @@ const BoardItem = ({
         className="accordionContent"
       >
         <div className="accordionText">
-          {html}
+          {data.content}
         </div>
       </div>
     </div>

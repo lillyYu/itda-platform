@@ -2,7 +2,11 @@ import Footer from "pages/Footer"
 import { Mobile } from "utils/MediaQuery"
 import { Link, NavLink } from "react-router-dom";
 
-const Nav = ({navActive, handleScroll}) => {
+const Nav = ({
+  navActive, 
+  handleScroll, 
+  setNavActive
+}) => {
   return (
     <nav className={navActive ? "active" : undefined}>
       <ul>
@@ -15,7 +19,7 @@ const Nav = ({navActive, handleScroll}) => {
         <li onClick={() => handleScroll(3)}>
           <Link to="/">CONTACT US</Link>
         </li>
-        <li>
+        <li onClick={() => setNavActive(false)}>
           <NavLink to="/with-us" activeclassname="active" >WORK WITH US</NavLink>
         </li>
       </ul>

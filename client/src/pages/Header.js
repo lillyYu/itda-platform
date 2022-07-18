@@ -41,7 +41,11 @@ const Header = ({
               handleScroll={handleScroll}
             />
           </div>
-          <Nav navActive={navActive} handleScroll={handleScroll}/>
+          <Nav 
+            navActive={navActive} 
+            handleScroll={handleScroll}
+            setNavActive={setNavActive}
+          />
         </Mobile>
 
         <Desktop>
