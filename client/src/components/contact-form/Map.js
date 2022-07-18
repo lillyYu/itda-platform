@@ -1,5 +1,5 @@
 import { Marker, NaverMap, RenderAfterNavermapsLoaded } from 'react-naver-maps';
-import anchor from 'images/anchor.svg'
+import anchor from 'images/anchor2.svg'
 
 const Map = () => {
   return (

@@ -8,7 +8,7 @@ import "aos/dist/aos.css";
 import Aos from "aos";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Landing from "Landing";
-import WorkWithUs from "pages/subpages/WorkWithUs";
+import WorkWithUs from "pages/subpages/work-with-us/WorkWithUs";
 
 function App() {
   const sections = useRef([]);
@@ -30,7 +30,8 @@ function App() {
       once: true,
       duration : 800,
       easing: 'ease-in-out-cubic',
-      anchorPlacement: 'top-bottom'
+      anchorPlacement: 'top-bottom',
+      mirror: true
     });
   })
   

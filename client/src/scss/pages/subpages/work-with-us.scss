@@ -3,9 +3,130 @@
 .work-with-us {
   position: relative;
   padding-top: 8rem;
-  min-height: 100vh;
 
   .work-with-us-wrap {
     @include webMargin();
+
+    article {
+
+      em {
+        font-weight: bold;
+        color: $point-pink-color;
+      }
+
+      b {
+        color: $point-blue-color;
+      }
+
+      header {
+        margin-bottom: 8rem;
+        text-align: center;
+        font-size: 1.8rem;
+      }
+
+      main {
+        @include height();
+        padding: 8rem 0;
+
+        ul {
+          @include webMargin();
+          position: relative;
+          min-height: 30rem;
+
+          &::before {
+            position: absolute;
+            content: '<';
+            top: 0;
+            left: 0;
+            color: $point-pink-color;
+            font-size: 12.8rem;
+            opacity: 0.3;
+            font-weight: bold;
+            font-family: $bold-ff;
+          }
+
+          &::after {
+            position: absolute;
+            content: '/>';
+            bottom: 0;
+            right: 0;
+            color: $point-pink-color;
+            font-size: 12.8rem;
+            opacity: 0.3;
+            font-weight: bold;
+            font-family: $bold-ff;
+          }
+
+          li {
+            position: absolute;
+            opacity: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem 0;
+
+            width: 100%;
+            text-align: center;
+            transition: all 0.3s;
+
+            &.active {
+              opacity: 1;
+            }
+
+            p {
+              span {
+                color: $point-purple-color;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+
+      .boards {
+        @include height();
+        border: 1px solid blue;
+
+        .noti {
+          text-align: center;
+          font-size: 1.8rem;
+
+          p {
+            margin: 2rem 0;
+            vertical-align: middle;
+
+            span {
+              cursor: pointer;
+            }
+          }
+        }
+
+        ul {
+          li {
+            border-top: 1px solid $opacity-white-20;
+            border-bottom: 1px solid $opacity-white-20;
+
+            .accordionSection {
+
+              .accordion {
+                width: 100%;
+
+                p {
+                  @include flexCenterBetween();
+                  width: 100%;
+                  padding: 3rem 2rem;
+                  background-color: $base-black-color;
+                  color: white;
+
+                }
+              }
+
+              .accordionContent {
+                overflow: hidden;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

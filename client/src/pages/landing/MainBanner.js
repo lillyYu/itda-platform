@@ -47,7 +47,7 @@ const MainBanner = ({sections}) => {
               banners.map((banner) => {
                 return(
                   <li 
-                    key={banner.id} 
+                    key={banner.id}
                     className={currentSlide === banner.id ? 'active' : undefined }
                   >
                     <div className='progress-bar'>
