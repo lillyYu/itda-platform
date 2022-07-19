@@ -9,6 +9,7 @@ import Aos from "aos";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Landing from "Landing";
 import WorkWithUs from "pages/subpages/work-with-us/WorkWithUs";
+import WrongAccess from "pages/WrongAccess";
 
 function App() {
   const sections = useRef([]);
@@ -51,6 +52,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing sections={sections}/>} />
           <Route path="/with-us" element={<WorkWithUs />} />
+          <Route path="*" element={<WrongAccess />} />
         </Routes>
       </main>
 
