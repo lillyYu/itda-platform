@@ -6,34 +6,61 @@ import Modal from 'utils/modal/Modal';
 import OurWorkDetail from 'pages/details/OurWorkDetail';
 import axios from 'axios';
 
+const LOAD_SIZE_3 = 3;
+
 const OurWork = ({sections}) => {
-  const [endPoint, setEndPoint] = useState(3);
-  const [workIndex, setWorkIndex] = useState(0);
-  const [ourWorks, setOurWorks] = useState([])
+  const [page, setPage] = useState(1);
 
   const [modal, setModal] = useState(false);
   const [imgIndex, setImgIndex] = useState(1);
+
+  const [workIndex, setWorkIndex] = useState(0);
+  const [ourWorks, setOurWorks] = useState([]);
+  const [totalLength, setTotalLength] = useState(0);
+
+  const maxPages = totalLength / LOAD_SIZE_3;
 
   const handleModalShow = (status) => {
     setModal(status);
   };
 
-  const handleLoadMore = () => {
-    if (ourWorks.length >= endPoint) {
-      setEndPoint(endPoint + 3)
-    }
-  }
+  const handleLoadMore = async () => {
+    if (page < maxPages) {
+      setPage(page + 1)
 
-  const getOurWorks = async () => {
-    try {
-      const res = await axios.get(`/api/v1/our-work?page=1&size=4`);
-      setOurWorks(res.data)
-    } catch (error) {
-      console.log(error);
+      try {
+        const res = await axios.get(`/api/v1/our-work?page=${page + 1}&size=3`, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+
+        setOurWorks(ourWorks.concat(res.data.data));
+  
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      return undefined
     }
   }
 
   useEffect(() => {
+    const getOurWorks = async () => {
+      try {
+        const res = await axios.get(`/api/v1/our-work?page=1&size=3`, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        setTotalLength(res.data.totalCnt);
+  
+        setOurWorks(res.data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
     getOurWorks()
   }, [])
   
@@ -74,7 +101,7 @@ const OurWork = ({sections}) => {
           
           <ul>
             {
-              ourWorks.map((work, index) => {
+              ourWorks?.map((work, index) => {
                 return (
                   <li 
                     key={work.our_work_key}
@@ -100,8 +127,8 @@ const OurWork = ({sections}) => {
           </ul>
 
           <div className='alignCenter'>
-            <button 
-              className={ourWorks.length <= endPoint ? "displayNone" : undefined}
+            <button
+              className={page < maxPages ? undefined : "displayNone"}
               onClick={() => handleLoadMore()}
             >
               MORE

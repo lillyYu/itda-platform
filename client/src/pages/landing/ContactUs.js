@@ -7,15 +7,31 @@ import CopyToClipboard from "react-copy-to-clipboard";
 import { useEffect, useState } from "react";
 import ModalPortal from "utils/modal/ModalPortal";
 import AlertMessage from "components/elements/AlertMessage";
+import axios from "axios";
 
 const ContactUs = ({sections}) => {
   const [message, setMessage] = useState(false);
+  const [file, setFile] = useState({})
 
   useEffect(() => {
     if (message) {
       setTimeout(() => setMessage(false), 3000);
     }
   }, [message]);
+
+  useEffect(() => {
+    const getIntroductionFile = async () => {
+      try {
+        const res = await axios.get(`/api/v1/introduction`);
+        setFile(res.data)
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    getIntroductionFile()
+  }, [])
+  
 
   return (
     <section 
@@ -71,7 +87,10 @@ const ContactUs = ({sections}) => {
             
             <li>
               <i className="ri-survey-line"/>
-              <a href={pdf} download>
+              <a 
+                href={`/api/v1/file/download?path=${file?.attach_file_path}&tname=${file?.temp_file_name}&name=${file?.origin_file_name}`} 
+                download
+              >
                 회사소개서.pdf
               </a>
             </li>

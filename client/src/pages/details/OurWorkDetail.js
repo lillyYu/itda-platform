@@ -10,8 +10,6 @@ const OurWorkDetail = ({
 }) => {
   const [workDetail, setWorkDetail] = useState([]);
 
-  console.log(workIndex, "workIndex")
-
   useEffect(() => {
     const getWorkDetail = async () => {
       try {
@@ -25,8 +23,6 @@ const OurWorkDetail = ({
 
     getWorkDetail()
   }, [workIndex])
-
-  console.log(workDetail)
 
   return (
     <>
@@ -58,7 +54,7 @@ const OurWorkDetail = ({
             <i 
               className="ri-arrow-left-s-line"
               onClick={() => {
-                if(workDetail.image?.length >= imgIndex && imgIndex > 1) {
+                if(workDetail.ourWorkImgList?.length >= imgIndex && imgIndex > 1) {
                   setImgIndex(imgIndex - 1)
                 }
               }}
