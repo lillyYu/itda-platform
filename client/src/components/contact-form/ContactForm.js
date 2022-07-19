@@ -24,7 +24,7 @@ const ContactForm = () => {
     setLoading(true)
 
     try {
-      const res = await axios.post('/mail/mail-send', {
+      const res = await axios.post('/api/v1/mail/mail-send', {
         name: data.name,
         phone: data.phone,
         email: data.email,

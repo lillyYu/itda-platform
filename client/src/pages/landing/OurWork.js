@@ -28,9 +28,8 @@ const OurWork = ({sections}) => {
     try {
       const res = await axios.get(`/api/v1/our-work?page=1&size=4`);
       setOurWorks(res.data)
-      console.log(res);
     } catch (error) {
-      
+      console.log(error);
     }
   }
 
@@ -49,28 +48,28 @@ const OurWork = ({sections}) => {
         <article>
           {
             modal &&
-              <ModalPortal>
-                <Modal 
-                  show={modal}
-                  handleModalShow={handleModalShow}
-                  setImgIndex={setImgIndex}
-                >
-                  <div className='work-detail'>
-                    <span onClick={() => {
-                        setModal(false);
-                        setImgIndex(1);
-                      }}>
-                      <i className="ri-close-line"/>
-                    </span>
-    
-                    <OurWorkDetail 
-                      workIndex={workIndex}
-                      setImgIndex={setImgIndex}
-                      imgIndex={imgIndex}
-                    />
-                  </div>
-                </Modal>
-              </ModalPortal>
+            <ModalPortal>
+              <Modal 
+                show={modal}
+                handleModalShow={handleModalShow}
+                setImgIndex={setImgIndex}
+              >
+                <div className='work-detail'>
+                  <span onClick={() => {
+                      setModal(false);
+                      setImgIndex(1);
+                    }}>
+                    <i className="ri-close-line"/>
+                  </span>
+  
+                  <OurWorkDetail 
+                    workIndex={workIndex}
+                    setImgIndex={setImgIndex}
+                    imgIndex={imgIndex}
+                  />
+                </div>
+              </Modal>
+            </ModalPortal>
           }
           
           <ul>

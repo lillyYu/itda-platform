@@ -9,21 +9,17 @@ const OurWorkDetail = ({
   imgIndex
 }) => {
   const [workDetail, setWorkDetail] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   console.log(workIndex, "workIndex")
 
   useEffect(() => {
     const getWorkDetail = async () => {
-      setLoading(true);
       try {
         const res = await axios.get(`/api/v1/our-work/${workIndex}`);
         setWorkDetail(res.data)
         console.log(res, ":ddd");
-        setLoading(false);
       } catch (error) {
         console.log(error)
-        setLoading(false);
       }
     }
 
@@ -34,21 +30,21 @@ const OurWorkDetail = ({
 
   return (
     <>
-      <header>{workDetail?.ourWork.title}</header>
+      <header>{workDetail.ourWork?.title}</header>
   
       <div className='work-detail-wrap'>
         <div className='work-detail-left'>
           <div className='gallery'>
             <div className='gallery-wrap'>
               <ul 
-                style={{"width": `${workDetail?.ourWorkImgList.length}00%`, "right":`${imgIndex - 1}00%`}}
+                style={{"width": `${workDetail.ourWorkImgList?.length}00%`, "right":`${imgIndex - 1}00%`}}
               >
                 {
-                  workDetail?.image.map((src, index) => {
+                  workDetail.ourWorkImgList?.map((img, index) => {
                     return (
                       <li key={index}>
                         <figure>
-                          <img src={src} alt="our work detail"/>
+                          <img src={`${process.env.REACT_APP_GET_FILE}${img.attach_file_path}/${img.temp_file_name}`} alt="our work detail"/>
                         </figure>
                       </li>
                     )
@@ -62,20 +58,20 @@ const OurWorkDetail = ({
             <i 
               className="ri-arrow-left-s-line"
               onClick={() => {
-                if(workDetail?.image.length >= imgIndex && imgIndex > 1) {
+                if(workDetail.image?.length >= imgIndex && imgIndex > 1) {
                   setImgIndex(imgIndex - 1)
                 }
               }}
             />
   
             <span>
-              <strong>{imgIndex}</strong> / {workDetail?.ourWorkImgList.length}
+              <strong>{imgIndex}</strong> / {workDetail.ourWorkImgList?.length}
             </span>
   
             <i 
               className="ri-arrow-right-s-line"
               onClick={() => {
-                if(workDetail?.ourWorkImgList.length > imgIndex) {
+                if(workDetail.ourWorkImgList?.length > imgIndex) {
                   setImgIndex(imgIndex + 1)
                 }
               }}
@@ -87,7 +83,7 @@ const OurWorkDetail = ({
           <ul>
             <li className='time-spent'>
               <em>개발 기간</em>
-              <p>{workDetail?.ourWork.work_timespent}</p>
+              <p>{workDetail.ourWork?.work_timespent}</p>
             </li>
   
             <li className='range'>
@@ -98,7 +94,7 @@ const OurWorkDetail = ({
                     return(
                       <li 
                         key={range.id}
-                        className={ workDetail?.ourWork.work_range.includes(range.id) ? "active" : undefined }
+                        className={ workDetail.ourWork?.work_range.includes(range.id) ? "active" : undefined }
                       >
                         {range.name}
                       </li>
@@ -116,7 +112,7 @@ const OurWorkDetail = ({
                     return(
                       <li 
                         key={os.id}
-                        className={ workDetail?.ourWork.work_os.includes(os.id) ? "active" : undefined }
+                        className={ workDetail.ourWork?.work_os.includes(os.id) ? "active" : undefined }
                       >{os.name}</li>
                     )
                   })
@@ -132,7 +128,7 @@ const OurWorkDetail = ({
                     return(
                       <li 
                         key={lang.id}
-                        className={ workDetail?.ourWork.work_lang.includes(lang.id)  ? "active" : undefined }
+                        className={ workDetail.ourWork?.work_lang.includes(lang.id)  ? "active" : undefined }
                       >{lang.name}</li>
                     )
                   })
@@ -143,7 +139,7 @@ const OurWorkDetail = ({
             <li>
               <em>상세 설명</em>
               <p>
-                {workDetail?.ourWork.content}
+                {workDetail.ourWork?.content}
               </p>
             </li>
           </ul>
