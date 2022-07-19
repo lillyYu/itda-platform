@@ -1,6 +1,5 @@
 import SectionTitle from "components/elements/SectionTitle"
 import 'scss/pages/landing/contact-us.scss';
-import pdf from 'images/itdaCompanyInfo.pdf'
 import ContactForm from "components/contact-form/ContactForm";
 import Map from "components/contact-form/Map";
 import CopyToClipboard from "react-copy-to-clipboard";
@@ -8,6 +7,7 @@ import { useEffect, useState } from "react";
 import ModalPortal from "utils/modal/ModalPortal";
 import AlertMessage from "components/elements/AlertMessage";
 import axios from "axios";
+import CodeTitle from "components/elements/CodeTitle";
 
 const ContactUs = ({sections}) => {
   const [message, setMessage] = useState(false);
@@ -42,9 +42,7 @@ const ContactUs = ({sections}) => {
 
       <div className="contact-us-wrap">
         <address data-aos="fade-right">
-          <h3>
-            &#60; <span>div</span> <span>className</span> <span> ='ITDA Address'</span> &#47;&#62;
-          </h3>
+          <CodeTitle title="ITDA Address"/>
 
           <div className="naver-map">
             <Map/>

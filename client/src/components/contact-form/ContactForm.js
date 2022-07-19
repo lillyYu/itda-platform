@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import LoadingSpinner from "components/elements/LoadingSpinner";
 import AlertMessage from "components/elements/AlertMessage";
 import ModalPortal from 'utils/modal/ModalPortal';
+import CodeTitle from "components/elements/CodeTitle";
 
 const ContactForm = () => {
   const [message, setMessage] = useState(false);
@@ -54,10 +55,8 @@ const ContactForm = () => {
     :
     <>
       <form onSubmit={handleSubmit(submitHandler)} data-aos="fade-left">
-        <h3>
-          &#60; <span>div</span> <span>className</span> <span> ='ask to ITDA'</span> &#47;&#62;
-        </h3>
-  
+        <CodeTitle title="ask to ITDA"/>
+
         <div className="form-wrap">
           <div className="inputLabel">
             <input 

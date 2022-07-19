@@ -15,7 +15,6 @@ const OurWorkDetail = ({
       try {
         const res = await axios.get(`/api/v1/our-work/${workIndex}`);
         setWorkDetail(res.data)
-        console.log(res, ":ddd");
       } catch (error) {
         console.log(error)
       }

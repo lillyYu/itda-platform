@@ -29,11 +29,7 @@ const OurWork = ({sections}) => {
       setPage(page + 1)
 
       try {
-        const res = await axios.get(`/api/v1/our-work?page=${page + 1}&size=3`, {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        });
+        const res = await axios.get(`/api/v1/our-work?page=${page + 1}&size=3`);
 
         setOurWorks(ourWorks.concat(res.data.data));
   
