@@ -2,6 +2,7 @@ import 'scss/pages/details/our-work-detail.scss';
 import tags from 'data/work-detail-tags.json';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { GetOurWorksDetail } from 'api/ApiUrl';
 
 const OurWorkDetail = ({
   workIndex,
@@ -13,7 +14,7 @@ const OurWorkDetail = ({
   useEffect(() => {
     const getWorkDetail = async () => {
       try {
-        const res = await axios.get(`/api/v1/our-work/${workIndex}`);
+        const res = await axios.get(`${GetOurWorksDetail}/${workIndex}`);
         setWorkDetail(res.data)
       } catch (error) {
         console.log(error)

@@ -8,6 +8,7 @@ import ModalPortal from "utils/modal/ModalPortal";
 import AlertMessage from "components/elements/AlertMessage";
 import axios from "axios";
 import CodeTitle from "components/elements/CodeTitle";
+import { FileDownloadUrl, GetIntroductionFile } from "api/ApiUrl";
 
 const ContactUs = ({sections}) => {
   const [message, setMessage] = useState(false);
@@ -22,7 +23,7 @@ const ContactUs = ({sections}) => {
   useEffect(() => {
     const getIntroductionFile = async () => {
       try {
-        const res = await axios.get(`/api/v1/introduction`);
+        const res = await axios.get(`${GetIntroductionFile}`);
         setFile(res.data)
       } catch (error) {
         console.log(error);
@@ -86,7 +87,7 @@ const ContactUs = ({sections}) => {
             <li>
               <i className="ri-survey-line"/>
               <a 
-                href={`/api/v1/file/download?path=${file?.attach_file_path}&tname=${file?.temp_file_name}&name=${file?.origin_file_name}`} 
+                href={`${FileDownloadUrl}/path=${file?.attach_file_path}&tname=${file?.temp_file_name}&name=${file?.origin_file_name}`} 
                 download
               >
                 회사소개서.pdf
