@@ -20,8 +20,8 @@ const BoardItem = ({
     <div className={`accordionSection ${setActive}`}>
       <div className="accordion" onClick={toggleAccordion}>
         <p className="accordionTitle">
-          <strong>{data.title}</strong>
-          <time>{data.from} ~ {data.to}</time>
+          <strong>{data.position}</strong>
+          <time>{data.start_date} ~ {data.end_date}</time>
         </p>
       </div>
 
@@ -31,7 +31,7 @@ const BoardItem = ({
         className="accordionContent"
       >
         <div className="accordionText">
-          {data.content}
+          <div dangerouslySetInnerHTML={{__html:data.content}} />
         </div>
       </div>
     </div>

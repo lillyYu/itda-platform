@@ -8,10 +8,13 @@ import ModalPortal from 'utils/modal/ModalPortal';
 import AlertMessage from "components/elements/AlertMessage";
 import data from 'data/fake-data.json';
 import BoardItem from "./board/BoardItem";
+import axios from "axios";
 
 const WorkWithUs = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [message, setMessage] = useState(false);
+
+  const [withUs, setWithUs] = useState([])
 
   const workWithUsBanners = [
     {
@@ -42,6 +45,19 @@ const WorkWithUs = () => {
     }
   }, [message]);
 
+  useEffect(() => {
+    const getWorkWithUs = async () => {
+      try {
+        const res = await axios.get(`/api/v1/with-us`);
+        setWithUs(res.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    getWorkWithUs()
+  }, [])
+  
   return (
     <section className="work-with-us">
       <div className="work-with-us-wrap">
@@ -78,11 +94,11 @@ const WorkWithUs = () => {
 
             <ul>
               {
-                data.map((datas) => {
+                withUs?.map((data) => {
                   return(
-                    <li key={datas.id}>
+                    <li key={data.with_us_key}>
                       <BoardItem
-                        data={datas}
+                        data={data}
                       />
                     </li>
                   )
