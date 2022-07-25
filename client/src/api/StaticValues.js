@@ -1,0 +1,1 @@
+export const LOAD_SIZE_3 = 3;

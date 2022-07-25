@@ -5,8 +5,8 @@ import ModalPortal from 'utils/modal/ModalPortal';
 import Modal from 'utils/modal/Modal';
 import OurWorkDetail from 'pages/details/OurWorkDetail';
 import axios from 'axios';
-
-const LOAD_SIZE_3 = 3;
+import { GetOurWorks } from 'api/ApiUrl';
+import { LOAD_SIZE_3 } from 'api/StaticValues';
 
 const OurWork = ({sections}) => {
   const [page, setPage] = useState(1);
@@ -29,7 +29,7 @@ const OurWork = ({sections}) => {
       setPage(page + 1)
 
       try {
-        const res = await axios.get(`/api/v1/our-work?page=${page + 1}&size=3`);
+        const res = await axios.get(`${GetOurWorks}?page=${page + 1}&size=3`);
 
         setOurWorks(ourWorks.concat(res.data.data));
   
@@ -44,7 +44,7 @@ const OurWork = ({sections}) => {
   useEffect(() => {
     const getOurWorks = async () => {
       try {
-        const res = await axios.get(`/api/v1/our-work?page=1&size=3`, {
+        const res = await axios.get(`${GetOurWorks}?page=1&size=3`, {
           headers: {
             'Content-Type': 'application/json'
           }
