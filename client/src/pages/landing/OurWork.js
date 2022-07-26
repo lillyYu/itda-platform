@@ -29,7 +29,7 @@ const OurWork = ({sections}) => {
       setPage(page + 1)
 
       try {
-        const res = await axios.get(`${GetOurWorks}?page=${page + 1}&size=3`);
+        const res = await axios.get(`${GetOurWorks}?page=${page + 1}&size=${LOAD_SIZE_3}`);
 
         setOurWorks(ourWorks.concat(res.data.data));
   
