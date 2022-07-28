@@ -13,7 +13,6 @@
     @include webMargin();
 
     article {
-
       em {
         font-weight: bold;
         color: $point-pink-color;
@@ -29,6 +28,21 @@
 
         h2 {
           margin-bottom: 8rem;
+        }
+
+        i {
+          margin-left: 3rem;
+          padding: 0.2rem;
+          vertical-align: middle;
+          background-color: $opacity-white-20;
+          color: white;
+          cursor: pointer;
+          font-size: 1.4rem;
+          transition: all 0.3s;
+
+          &:hover {
+            background-color: $opacity-white-40;
+          }
         }
 
         header {

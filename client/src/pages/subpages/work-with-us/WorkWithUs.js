@@ -3,18 +3,15 @@ import 'scss/pages/subpages/work-with-us.scss';
 import { useEffect, useState } from "react";
 import Banner1 from "./banners/Banner1";
 import Banner2 from "./banners/Banner2";
-import CopyToClipboard from "react-copy-to-clipboard";
-import ModalPortal from 'utils/modal/ModalPortal';
-import AlertMessage from "components/elements/AlertMessage";
-import data from 'data/fake-data.json';
 import BoardItem from "./board/BoardItem";
 import axios from "axios";
+import Information from "./information/Information";
 
 const WorkWithUs = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [message, setMessage] = useState(false);
 
   const [withUs, setWithUs] = useState([])
+  const [playBtn, setPlayBtn] = useState(false)
 
   const workWithUsBanners = [
     {
@@ -31,19 +28,17 @@ const WorkWithUs = () => {
     const timer = setInterval(() => {
       setCurrentSlide(currentSlide + 1 );
 
-      if(currentSlide === 1) {
+      if(currentSlide === 1 ) {
         setCurrentSlide(0)
       }
-    }, 6000);
+    }, 5000);
+
+    if(playBtn) {
+      clearInterval(timer);
+    }
 
     return () => clearInterval(timer);
-  });
-
-  useEffect(() => {
-    if (message) {
-      setTimeout(() => setMessage(false), 3000);
-    }
-  }, [message]);
+  }, [currentSlide, playBtn]);
 
   useEffect(() => {
     const getWorkWithUs = async () => {
@@ -66,7 +61,14 @@ const WorkWithUs = () => {
           <main>
             <SectionTitle title="WORK WITH US" />
 
-            <header><em>require</em> ('자신의 COLOR✨를 잃지 않는 팀웍')</header>
+            <header>
+              <em>require</em> ('자신의 COLOR✨를 잃지 않는 팀웍')
+              <i 
+                onClick={() => {setPlayBtn(!playBtn)}}
+                className={playBtn ? "ri-play-line" : "ri-pause-line"}
+              />
+            </header>
+
 
             <ul>
               <li>{workWithUsBanners[currentSlide].content}</li>
@@ -74,23 +76,7 @@ const WorkWithUs = () => {
           </main>
 
           <div className="boards">
-            <div className="noti">
-              <p>✍ 지원서 양식은 자신을 표현할 수 있는 형태로 자유롭게 보내주세요!</p>
-              <p>
-                <CopyToClipboard
-                  text={"dev@itdadev.com"}
-                  onCopy={() => setMessage(true)}
-                >
-                  <span>👉 <u>dev@itdadev.com</u> 👈</span>
-                </CopyToClipboard>
-              </p>
-
-              <ModalPortal>
-                <AlertMessage show={message}>
-                  클립보드에 복사되었습니다!
-                </AlertMessage>
-              </ModalPortal>
-            </div>
+            <Information />
 
             <ul>
               {
