@@ -1,57 +1,26 @@
 [
   {
     "id" : 1,
-    "timeSpent" : "4개월",
-    "range" : [2],
-    "os" : [2, 4],
-    "lang" : [1, 10, 3],
-    "image": [
-      "images/work1.png",
-      "images/work2.png",
-      "images/work3.jpg"
-    ],
-    "title" : "연습실 대여 및 예약 플랫폼",
-    "content" : "악기 연습실/합주실을 찾아주는 서비스 연습공간을 소유하고 있는 유저가 등록을 하고 연습하려는 유저가 해당 공간에 대한 가격과 일정을 예약하여 이용해주는 플랫폼"
+    "color" : "#F27EAA",
+    "image": "images/tag1.png",
+    "title" : "Development Strategy Consulting",
+    "subTitle" : "개발전략 컨설팅",
+    "content" : "간단한 상품판매부터 입점형 쇼핑몰의 복잡한 정산, 재고관리까지 이커머스를 운영하는데 필요한 기능구축,  다수유저간의 인터렉션부터 포인트관리까지 모든분야의 플랫폼을 제작한 경험이 있는 개발팀에서 당신의 사업에 맞는 플랫폼을 만들어드립니다."
   },
   {
     "id" : 2,
-    "timeSpent" : "10개월",
-    "range" : [1],
-    "os" : [1, 2, 3, 4],
-    "lang" : [4, 7, 2],
-    "image": [
-      "images/work4.jpg"
-    ],
-    "title" : "과외매칭 플랫폼",
-    "content" : "우리 없는 청춘을 힘차게 교향악이다. 들어 얼음에 같은 인간이 얼마나 것은 피어나는 할지니, 봄바람이다. 관현악이며, 같이, 힘차게 청춘은 장식하는 모래뿐일 것이다."
+    "color" : "#97E1E7",
+    "image": "images/tag2.png",
+    "title" : "WEB, APP Development",
+    "subTitle" : "웹, 앱 개발",
+    "content" : "크로스브라우징부터 웹앱 / ios / Android 까지 다양한 OS에서 여러분의 서비스를 구현할 수있습니다."
   },
   {
     "id" : 3,
-    "timeSpent" : "12개월",
-    "range" : [3],
-    "os" : [1, 4],
-    "lang" : [1, 3, 8],
-    "image": [
-      "images/work5.jpg",
-      "images/work6.jpg",
-      "images/work7.jpg"
-    ],
-    "title" : "건강기능식품 구매",
-    "content" : "튼튼하며, 따뜻한 위하여 대중을 하는 얼마나 끝에 주는 이상의 그리하였는가? 사는가 기관과 유소년에게서 우는 위하여 이상을 황금시대다. 가장 두기 커다란 물방아 것이다."
-  },
-  {
-    "id" : 4,
-    "timeSpent" : "16개월",
-    "range" : [1, 3],
-    "os" : [1, 3],
-    "lang" : [1, 10],
-    "image": [
-      "images/work7.jpg",
-      "images/work8.jpg",
-      "images/work9.jpg",
-      "images/work10.jpg"
-    ],
-    "title" : "건강기능식품 구매 & 정기구독",
-    "content" : "튼튼하며, 따뜻한 위하여 대중을 하는 얼마나 끝에 주는 이상의 그리하였는가? 사는가 기관과 유소년에게서 우는 위하여 이상을 황금시대다. 가장 두기 커다란 물방아 것이다."
+    "color" : "#B99DEE",
+    "image": "images/tag3.png",
+    "title" : "Blockchain Development",
+    "subTitle" : "블록체인 개발",
+    "content" : "스마트컨트랙트, NFT minting, 토큰발행부터 지갑까지 WEB3프로젝트에 필요한 기술을 제공해드립니다."
   }
-] 
+]
