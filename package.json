@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "aos": "^2.3.4",
+    "react-intl": "^6.0.8",
     "react-naver-maps": "^0.0.13"
   }
 }

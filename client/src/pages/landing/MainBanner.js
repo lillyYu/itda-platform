@@ -1,12 +1,15 @@
 import 'scss/pages/landing/main-banner.scss';
 import banners from 'data/main-banner.json'
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useEffect } from 'react';
 import { Desktop, Mobile } from 'utils/MediaQuery';
+import GeneralContext from 'utils/context/GeneralContext';
 
 const MainBanner = ({sections}) => {
   const [currentSlide, setCurrentSlide] = useState(1);
   const [aniamtion, setAnimation] = useState(true);
+
+  const {language} = useContext(GeneralContext)
 
   useEffect(()=>{
     const timer = setInterval(() => {
@@ -67,7 +70,11 @@ const MainBanner = ({sections}) => {
                     <p className='main-content'>
                       <i className="ri-arrow-down-s-line"/>
                       <span>
-                        {banner.mainContent}
+                        {
+                          language === "ko"
+                          ? banner.mainContentKo
+                          : banner.mainContentEn
+                        }
                       </span>
                     </p>
   
@@ -87,7 +94,11 @@ const MainBanner = ({sections}) => {
                         style={{"color" : banner.color}}
                       />
                       <span>
-                        {banner.subContent}
+                        {
+                          language === "ko"
+                          ? banner.subContentKo
+                          : banner.subContentEn
+                        }
                       </span>
                     </div>
                   </li>

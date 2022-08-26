@@ -46,7 +46,7 @@ const ContactUs = ({sections}) => {
           <CodeTitle title="ITDA Address"/>
 
           <div className="naver-map">
-            <Map/>
+            {/* <Map/> */}
           </div>
 
           <ul>
@@ -87,7 +87,8 @@ const ContactUs = ({sections}) => {
             <li>
               <i className="ri-survey-line"/>
               <a 
-                href={`${FileDownloadUrl}/path=${file?.attach_file_path}&tname=${file?.temp_file_name}&name=${file?.origin_file_name}`} 
+                href={`${FileDownloadUrl}?path=${file?.attach_file_path}&tname=${file?.temp_file_name}&name=${file?.origin_file_name}`} 
+                alt="잇다 회사소개서 pdf 파일"
                 download
               >
                 회사소개서.pdf

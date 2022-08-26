@@ -37,11 +37,11 @@ function App() {
       mirror: true
     });
   })
-  
+
   return (
     <div className="App">
       <Header 
-        handleScroll={handleScroll} 
+        handleScroll={handleScroll}
         navActive={navActive}
         setNavActive={setNavActive}
         isOpen={isOpen}
@@ -56,7 +56,9 @@ function App() {
         </Routes>
       </main>
 
-      <Desktop><Footer/></Desktop>
+      <Desktop>
+        <Footer/>
+      </Desktop>
     </div>
   );
 }

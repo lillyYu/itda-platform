@@ -1,6 +1,7 @@
 import Footer from "pages/Footer"
 import { Mobile } from "utils/MediaQuery"
 import { NavLink } from "react-router-dom";
+import LocaleSelect from "utils/locale/LocaleSelect";
 
 const Nav = ({
   navActive, 
@@ -27,11 +28,15 @@ const Nav = ({
           <NavLink 
             to="/with-us" 
             activeclassname="active" 
-          >WORK WITH US</NavLink>
+          >
+            WORK WITH US
+          </NavLink>
         </li>
       </ul>
       
-      <div>
+      <div className="notionLink">
+        <LocaleSelect />
+
         <a 
           href="https://itdadev.notion.site/itdadev/ITDA-564620af541b43a389410d9bfef01285"
           rel="noreferrer"

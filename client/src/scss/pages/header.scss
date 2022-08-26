@@ -20,8 +20,43 @@
     height: 100%;
 
     nav {
+      .locale-select {
+        position: relative;
+        margin-right: 3rem;
+        color: white;
+        background: $opacity-white-20;
+        font-weight: $bold-fw;
+        padding: 0.4rem 1.2rem;
+        cursor: pointer;
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+
+          li {
+            width: 100%;
+            text-align: center;
+            background-color: $base-black-color;
+            font-size: 1.4rem;
+            font-weight: $bold-fw;
+            color: $opacity-white-40;
+
+            &:hover,
+            &.active {
+              background-color: white;
+              color: $base-black-color;
+            }
+          }
+        }
+
+      }
+
       &>ul {
-        li {
+        &>li {
           padding: 2rem 0;
           text-align: center;
           cursor: pointer;
@@ -37,7 +72,7 @@
         }
       }
 
-      &>div {
+      .notionLink {
         @include alignCenter();
         width: 100%;
 
@@ -66,7 +101,7 @@
           @include flexAlignCenter();
           flex-direction: row;
           gap: 0 8rem;
-          flex: 5;
+          flex: 3;
           justify-content: flex-end;
 
           li {
@@ -75,7 +110,7 @@
           }
         }
 
-        &>div {
+        .notionLink {
           flex: 1;
           justify-content: flex-end;
         }
@@ -121,6 +156,15 @@
           visibility: visible;
           opacity: 1;
           top: 0;
+        }
+
+        .locale-select {
+          margin-right: 0;
+        }
+
+        .notionLink {
+          flex-direction: column-reverse;
+          gap: 3rem 0;
         }
       }
     }
