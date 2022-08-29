@@ -7,6 +7,7 @@ import { FormattedMessage } from 'react-intl';
 import GeneralContext from 'utils/context/GeneralContext';
 
 const OurWorkDetail = ({
+  setWorkIndex,
   workIndex,
   setImgIndex,
   imgIndex
@@ -19,6 +20,7 @@ const OurWorkDetail = ({
     const getWorkDetail = async () => {
       try {
         const res = await axios.get(`${GetOurWorksDetail}/${workIndex}`);
+        console.log(res);
         setWorkDetail(res.data)
       } catch (error) {
         console.log(error)
@@ -187,12 +189,18 @@ const OurWorkDetail = ({
           </ul>
 
           <div className="prev-next">
-            <button>
+            <button
+              disabled={workDetail.ourWork?.prev_our_work_key === undefined}
+              onClick={() => setWorkIndex(workDetail?.ourWork.prev_our_work_key)}
+            >
               <i className="ri-arrow-left-line"/>
               Prev
             </button>
-            
-            <button>
+
+            <button
+              disabled={workDetail.ourWork?.next_our_work_key === undefined}
+              onClick={() => setWorkIndex(workDetail?.ourWork.next_our_work_key)}
+            >
               Next
               <i className="ri-arrow-right-line"/>
             </button>

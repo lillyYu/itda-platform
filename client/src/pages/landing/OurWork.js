@@ -85,6 +85,7 @@ const OurWork = ({sections}) => {
                   </span>
   
                   <OurWorkDetail 
+                    setWorkIndex={setWorkIndex}
                     workIndex={workIndex}
                     setImgIndex={setImgIndex}
                     imgIndex={imgIndex}
@@ -110,7 +111,7 @@ const OurWork = ({sections}) => {
                     }
                   >
                     <div className='hover-bg'>
-                      <span><em>DETAIL {index}</em></span>
+                      <span><em>DETAIL</em></span>
                     </div>
                     <figure>
                       <img src={`${process.env.REACT_APP_GET_FILE}${work.thumbnail_file_path}/${work.thumbnail_temp_file_name}`} alt={`${work.title} thumbnail`}/>
