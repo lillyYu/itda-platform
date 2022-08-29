@@ -1,6 +1,6 @@
 import 'scss/pages/details/our-work-detail.scss';
 import tags from 'data/work-detail-tags.json';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import { GetOurWorksDetail } from 'api/ApiUrl';
 import { FormattedMessage } from 'react-intl';
@@ -15,12 +15,10 @@ const OurWorkDetail = ({
   const {language} = useContext(GeneralContext)
   const [workDetail, setWorkDetail] = useState([]);
 
-
   useEffect(() => {
     const getWorkDetail = async () => {
       try {
         const res = await axios.get(`${GetOurWorksDetail}/${workIndex}`);
-        console.log(res);
         setWorkDetail(res.data)
       } catch (error) {
         console.log(error)
@@ -199,7 +197,7 @@ const OurWorkDetail = ({
 
             <button
               disabled={workDetail.ourWork?.next_our_work_key === undefined}
-              onClick={() => setWorkIndex(workDetail?.ourWork.next_our_work_key)}
+              onClick={() =>setWorkIndex(workDetail?.ourWork.next_our_work_key)}
             >
               Next
               <i className="ri-arrow-right-line"/>

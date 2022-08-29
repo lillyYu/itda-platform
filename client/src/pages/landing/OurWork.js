@@ -1,6 +1,6 @@
 import SectionTitle from 'components/elements/SectionTitle';
 import 'scss/pages/landing/our-work.scss';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ModalPortal from 'utils/modal/ModalPortal';
 import Modal from 'utils/modal/Modal';
 import OurWorkDetail from 'pages/details/OurWorkDetail';
@@ -84,7 +84,7 @@ const OurWork = ({sections}) => {
                     <i className="ri-close-line"/>
                   </span>
   
-                  <OurWorkDetail 
+                  <OurWorkDetail
                     setWorkIndex={setWorkIndex}
                     workIndex={workIndex}
                     setImgIndex={setImgIndex}

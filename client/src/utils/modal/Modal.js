@@ -6,7 +6,6 @@ export default function Modal ({
   children,
   setImgIndex
 }) {
-  
   useEffect(() => {
     if(show) {
       document.body.style.cssText = `
@@ -31,7 +30,9 @@ export default function Modal ({
           setImgIndex(1);
         }}
       />
-      <div className="modalContents">
+      <div 
+        className="modalContents"
+      >
         {children}
       </div>
     </div>
