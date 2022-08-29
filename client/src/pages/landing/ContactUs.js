@@ -49,7 +49,7 @@ const ContactUs = ({sections}) => {
           <CodeTitle title="ITDA Address"/>
 
           <div className="naver-map">
-            {/* <Map language={language}/> */}
+            <Map language={language}/>
           </div>
 
           <ul>

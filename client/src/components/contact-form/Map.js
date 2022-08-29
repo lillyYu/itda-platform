@@ -16,7 +16,7 @@ const Map = ({language}) => {
       >
         <Marker
           icon={anchor}
-          position={{ lat: 37.492708, lng: 127.015470 }}
+          position={{ lat: 37.4926680, lng: 127.0154930 }}
           animation={2}
           title={
             language === "ko"
