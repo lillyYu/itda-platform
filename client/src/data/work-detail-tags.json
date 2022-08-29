@@ -1,15 +1,18 @@
 [{
     "range": [{
         "id": 1,
-        "name": "기획"
+        "nameKo": "기획",
+        "nameEn" : "planning"
       },
       {
         "id": 2,
-        "name": "디자인"
+        "nameKo": "디자인",
+        "nameEn" : "designing"
       },
       {
         "id": 3,
-        "name": "개발"
+        "nameKo": "개발",
+        "nameEn" : "developing"
       }
     ]
   },

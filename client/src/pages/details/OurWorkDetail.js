@@ -1,14 +1,17 @@
 import 'scss/pages/details/our-work-detail.scss';
 import tags from 'data/work-detail-tags.json';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { GetOurWorksDetail } from 'api/ApiUrl';
+import { FormattedMessage } from 'react-intl';
+import GeneralContext from 'utils/context/GeneralContext';
 
 const OurWorkDetail = ({
   workIndex,
   setImgIndex,
   imgIndex
 }) => {
+  const {language} = useContext(GeneralContext)
   const [workDetail, setWorkDetail] = useState([]);
 
   useEffect(() => {
@@ -78,12 +81,27 @@ const OurWorkDetail = ({
         <div className='work-detail-right'>
           <ul>
             <li className='time-spent'>
-              <em>개발 기간</em>
-              <p>{workDetail.ourWork?.work_timespent}</p>
+              <em>
+                <FormattedMessage
+                  id="developing.span"
+                  defaultMessage="개발 기간"
+                />
+              </em>
+              <p>
+                {workDetail.ourWork?.work_timespent} <FormattedMessage
+                  id="months"
+                  defaultMessage="개월"
+                />
+              </p>
             </li>
   
             <li className='range'>
-              <em>개발 범위</em>
+              <em>
+                <FormattedMessage
+                  id="developing.range"
+                  defaultMessage="개발 범위"
+                />
+              </em>
               <ul className='range'>
                 {
                   tags[0].range.map((range) => {
@@ -92,7 +110,11 @@ const OurWorkDetail = ({
                         key={range.id}
                         className={ workDetail.ourWork?.work_range.includes(range.id) ? "active" : undefined }
                       >
-                        {range.name}
+                        {
+                          language === "ko" 
+                          ? range.nameKo
+                          : range.nameEn
+                        }
                       </li>
                     )
                   })
@@ -117,7 +139,12 @@ const OurWorkDetail = ({
             </li>
   
             <li className='lang'>
-              <em>개발 언어</em>
+              <em>
+                <FormattedMessage
+                  id="developing.language"
+                  defaultMessage="개발 언어"
+                />
+              </em>
               <ul className='lang'>
                 {
                   tags[2].lang.map((lang) => {
@@ -132,8 +159,13 @@ const OurWorkDetail = ({
               </ul>
             </li>
   
-            <li>
-              <em>상세 설명</em>
+            <li className='description'>
+              <em>
+                <FormattedMessage
+                  id="detail.description"
+                  defaultMessage="상세 설명"
+                />
+              </em>
               <p>
                 {workDetail.ourWork?.content}
               </p>

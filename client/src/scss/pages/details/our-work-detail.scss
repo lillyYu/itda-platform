@@ -125,6 +125,10 @@
             margin-bottom: 1rem;
           }
 
+          &.description {
+            white-space: break-spaces;
+          }
+
           &>ul {
             @include flexAlignCenter();
             gap: 0.8rem;

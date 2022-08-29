@@ -1,7 +1,15 @@
 {
+  "months": "months",
   "workWithUsBanner.paragraph1" : "Itda consist of people with various colors and we think this is our main potential.",
   "workWithUsBanner.paragraph2" : "As much as we show our personalities, we respect each other.{breakLine}We fully understand the importance of preserving every individuality {breakLine}when we work with the same goals.",
   "workWithUsBanner.paragraph3" : "We are confident of accomplishing great success {breakLine}as long as we keep try to make free and respectfull working environment together.",
-  "workWithUs.notification": "✍ Send us free-form application that can express your self",
-  "copied.to.clipboard" : "Copied to clipboard!"
+  "workWithUs.notification": "✍ Send us free-form application that can express yourself",
+  "copied.to.clipboard" : "Copied to clipboard!",
+  "developing.span" : "DEVELOPING SPAN",
+  "developing.range" : "DEVELOPING RANGE",
+  "developing.language" : "DEVELOPING LANGUAGE",
+  "detail.description" : "DESCRIPTION",
+  "planning" : "PLANNING",
+  "designig" : "DESIGNING",
+  "developing" : "DEVELOPING"
 }

@@ -5,9 +5,9 @@
     "image" : "images/main-banner1.png",
     "title" : "From MVP to PLATFORM",
     "mainContentKo" : "사업단계에 맞는 개발방향 제안 기획/운영 중인 비즈니스에 필요한 서비스를 제공",
-    "mainContentEn" : "need main content 1",
+    "mainContentEn" : "Suggesting development roadmap and services customized for your own business",
     "subContentKo" : "잇다는 단순히 의뢰주신 부분에서 정의된 기능만 개발하는것이 아닌, 클라이언트의 산업분야와 사업단계에 맞는 개발전략을 제시합니다.",
-    "subContentEn" : "sub1"
+    "subContentEn" : "Itda does not stop at developing only requested functions, but go further and suggest strategies for your business to raise competitive power."
   },
   {
     "id" : 2,
@@ -16,8 +16,8 @@
     "title" : "Concrete Development Process",
     "mainContentKo" : "성공적이고 완성도 높은 결과를 위한 잇다만의 견고한 개발과정",
     "mainContentEn" : "Itda's successful and satisfying development process",
-    "subContentKo" : "많은 실패와 보완을 위한 노력을 통해 현재 잇다의 개발과정입니다. 완벽이란 있을 수 없기에 현재도 개발과정 계속 발전/수정하고 있습니다. 기획/디자인/개발의 프로페셔널들이 프로젝트에 참여합니다.",
-    "subContentEn" : "sub2"
+    "subContentKo" : "많은 실패와 보완을 위한 노력을 통해 현재 잇다의 개발과정을 구축했습니다. 완벽이란 있을 수 없기에 현재도 개발과정 계속 발전/수정하고 있습니다. 기획/디자인/개발의 프로페셔널들이 프로젝트에 참여합니다.",
+    "subContentEn" : "With many trials and failures, we came out with itda's own development process. As we know that there is no perfection, we keep correct and develop our process. Professionals in plannaing/designing/developing are engaged in the projects."
   },
   {
     "id" : 3,
@@ -27,6 +27,6 @@
     "mainContentKo" : "스타트업 창업 경험이 있는 전문가들과 함께하는 전문 컨설팅",
     "mainContentEn" : "Specialized consulting with start-up experienced experts",
     "subContentKo" : "잇다는 다양한 분야의 플랫폼, 서비스 구축/운영 경험을 나누고 더 좋은 방향으로 프로젝트를 개발할 수 있도록 아이디어를 공유합니다.",
-    "subContentEn" : "sub3"
+    "subContentEn" : "Itda communicates and shares idea with you to lead your project in the best result."
   }
 ]
