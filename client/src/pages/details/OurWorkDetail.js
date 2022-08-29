@@ -14,6 +14,7 @@ const OurWorkDetail = ({
   const {language} = useContext(GeneralContext)
   const [workDetail, setWorkDetail] = useState([]);
 
+
   useEffect(() => {
     const getWorkDetail = async () => {
       try {
@@ -29,7 +30,13 @@ const OurWorkDetail = ({
 
   return (
     <>
-      <header>{workDetail.ourWork?.title}</header>
+      <header>
+        {
+          language === "ko"
+          ? workDetail.ourWork?.title_ko
+          : workDetail.ourWork?.title_en
+        }
+      </header>
   
       <div className='work-detail-wrap'>
         <div className='work-detail-left'>
@@ -43,7 +50,10 @@ const OurWorkDetail = ({
                     return (
                       <li key={index}>
                         <figure>
-                          <img src={`${process.env.REACT_APP_GET_FILE}${img.attach_file_path}/${img.temp_file_name}`} alt="our work detail"/>
+                          <img 
+                            src={`${process.env.REACT_APP_GET_FILE}${img.attach_file_path}/${img.temp_file_name}`} 
+                            alt="our work detail"
+                          />
                         </figure>
                       </li>
                     )
@@ -128,7 +138,7 @@ const OurWorkDetail = ({
                 {
                   tags[1].os.map((os) => {
                     return(
-                      <li 
+                      <li
                         key={os.id}
                         className={ workDetail.ourWork?.work_os.includes(os.id) ? "active" : undefined }
                       >{os.name}</li>
@@ -167,10 +177,26 @@ const OurWorkDetail = ({
                 />
               </em>
               <p>
-                {workDetail.ourWork?.content}
+                {
+                  language === "ko"
+                  ? workDetail.ourWork?.content_ko
+                  : workDetail.ourWork?.content_en
+                }
               </p>
             </li>
           </ul>
+
+          <div className="prev-next">
+            <button>
+              <i className="ri-arrow-left-line"/>
+              Prev
+            </button>
+            
+            <button>
+              Next
+              <i className="ri-arrow-right-line"/>
+            </button>
+          </div>
         </div>
       </div>
     </>

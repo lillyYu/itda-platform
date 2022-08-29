@@ -49,7 +49,7 @@ const ContactUs = ({sections}) => {
           <CodeTitle title="ITDA Address"/>
 
           <div className="naver-map">
-            {/* <Map/> */}
+            {/* <Map language={language}/> */}
           </div>
 
           <ul>
@@ -79,23 +79,26 @@ const ContactUs = ({sections}) => {
                 }
                 onCopy={() => setMessage(true)}
               >
-                <p>
-                  <span>
-                    {
-                      language === "ko"
-                      ? "서울특별시 서초구 서초중앙로 20길 33-17"
-                      : "33-17, Seochojungang-ro 20-gil, Seocho-gu, Seoul, Republic of Korea"
-                    }
-                    
-                  </span>
-                  <span>
-                    {
-                      language === "ko"
-                      ? "서초빌리지 1, 202호"
-                      : "2F, 202, Seocho village 1"
-                    }
-                  </span>
-                </p>
+                {
+                  language === "ko"
+                  ? <p>
+                      <span>
+                        서울특별시 서초구 서초중앙로 20길 33-17
+                      </span>
+                      <span>
+                        서초빌리지 1, 202호
+                      </span>
+                    </p>
+                  : <p>
+                      <span>
+                        2F, 202, Seocho village 1,
+                      </span>
+                      <span>
+                        33-17, Seochojungang-ro 20-gil, Seocho-gu
+                        <br/>Seoul, Republic of Korea
+                      </span>
+                    </p>
+                }
               </CopyToClipboard>
               <ModalPortal>
                 <AlertMessage show={message}>

@@ -33,6 +33,7 @@
     @include desktop {
       display: flex;
       gap: 0 5rem;
+      height: calc(100% - 3rem);
       margin-top: 0;
 
       &>* {
@@ -112,7 +113,15 @@
     }
 
     .work-detail-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
       padding: 2rem 0;
+
+      @include mobile {
+        gap: 5rem 0;
+      }
 
       &>ul {
         &>li {
@@ -167,6 +176,40 @@
               border-radius: 6rem;
               background-color: $opacity-white-20;
               color: $base-black-color;
+            }
+          }
+        }
+      }
+
+      .prev-next {
+        @include flexCenterBetween();
+
+        button {
+          @include flexAlignCenter();
+          gap: 0 0.5rem;
+          background-color: transparent;
+          color: $opacity-white-60;
+          font-size: 1.4rem;
+          transition: all 0.3s;
+
+          i {
+            transition: all 0.3s;
+            font-size: 1.2rem;
+          }
+
+          &:hover {
+            color: white;
+
+            &:first-child {
+              i {
+                margin-right: 1rem;
+              }
+            }
+
+            &:last-child {
+              i {
+                margin-left: 1rem;
+              }
             }
           }
         }

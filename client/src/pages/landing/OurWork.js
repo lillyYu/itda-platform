@@ -15,6 +15,7 @@ const OurWork = ({sections}) => {
   const [imgIndex, setImgIndex] = useState(1);
 
   const [workIndex, setWorkIndex] = useState(0);
+
   const [ourWorks, setOurWorks] = useState([]);
   const [totalLength, setTotalLength] = useState(0);
 
@@ -30,7 +31,6 @@ const OurWork = ({sections}) => {
 
       try {
         const res = await axios.get(`${GetOurWorks}?page=${page + 1}&size=${LOAD_SIZE_3}`);
-
         setOurWorks(ourWorks.concat(res.data.data));
   
       } catch (error) {
@@ -50,7 +50,6 @@ const OurWork = ({sections}) => {
           }
         });
         setTotalLength(res.data.totalCnt);
-  
         setOurWorks(res.data.data);
       } catch (error) {
         console.log(error);
@@ -94,7 +93,7 @@ const OurWork = ({sections}) => {
               </Modal>
             </ModalPortal>
           }
-          
+
           <ul>
             {
               ourWorks?.map((work, index) => {
@@ -111,7 +110,7 @@ const OurWork = ({sections}) => {
                     }
                   >
                     <div className='hover-bg'>
-                      <span><em>DETAIL</em></span>
+                      <span><em>DETAIL {index}</em></span>
                     </div>
                     <figure>
                       <img src={`${process.env.REACT_APP_GET_FILE}${work.thumbnail_file_path}/${work.thumbnail_temp_file_name}`} alt={`${work.title} thumbnail`}/>
