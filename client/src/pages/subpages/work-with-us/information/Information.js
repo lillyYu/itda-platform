@@ -1,6 +1,7 @@
 import AlertMessage from "components/elements/AlertMessage"
 import { useEffect, useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard"
+import { FormattedMessage } from "react-intl";
 import ModalPortal from "utils/modal/ModalPortal"
 
 const Information = () => {
@@ -14,7 +15,12 @@ const Information = () => {
 
   return (
     <div className="noti">
-      <p>✍ 지원서 양식은 자신을 표현할 수 있는 형태로 자유롭게 보내주세요!</p>
+      <p>
+        <FormattedMessage
+          id="workWithUs.notification"
+          defaultMessage="✍ 지원서 양식은 자신을 표현할 수 있는 형태로 자유롭게 보내주세요!"
+        />
+      </p>
       <p>
         <CopyToClipboard
           text={"dev@itdadev.com"}
@@ -26,7 +32,10 @@ const Information = () => {
 
       <ModalPortal>
         <AlertMessage show={message}>
-          클립보드에 복사되었습니다!
+          <FormattedMessage
+            id="copied.to.clipboard"
+            defaultMessage="클립보드에 복사되었습니다!"
+          />
         </AlertMessage>
       </ModalPortal>
     </div>

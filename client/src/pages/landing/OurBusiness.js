@@ -2,8 +2,11 @@ import 'scss/pages/landing/our-business.scss';
 import ourBusiness from 'data/our-business.json';
 import { Desktop } from 'utils/MediaQuery';
 import SectionTitle from 'components/elements/SectionTitle';
+import GeneralContext from 'utils/context/GeneralContext';
+import { useContext } from 'react';
 
 const OurBusiness = ({sections}) => {
+  const {language} = useContext(GeneralContext)
   return (
     <section 
       className="our-business" 
@@ -43,11 +46,21 @@ const OurBusiness = ({sections}) => {
                     <header>
                       <img src={business.image} alt="tag"/>
                       <span>0{business.id}</span>
-                      <p>{business.subTitle}</p>
+                      <p>
+                        {
+                          language === "ko" 
+                          ? business.subTitleKo
+                          : business.subTitleEn
+                        }
+                      </p>
                     </header>
 
                     <p>
-                      {business.content}
+                      {
+                        language === "ko" 
+                        ? business.contentKo
+                        : business.contentEn
+                      }
                     </p>
                   </li>
                 )

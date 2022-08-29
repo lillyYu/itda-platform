@@ -3,14 +3,17 @@ import 'scss/pages/landing/contact-us.scss';
 import ContactForm from "components/contact-form/ContactForm";
 import Map from "components/contact-form/Map";
 import CopyToClipboard from "react-copy-to-clipboard";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ModalPortal from "utils/modal/ModalPortal";
 import AlertMessage from "components/elements/AlertMessage";
 import axios from "axios";
 import CodeTitle from "components/elements/CodeTitle";
 import { FileDownloadUrl, GetIntroductionFile } from "api/ApiUrl";
+import GeneralContext from "utils/context/GeneralContext";
+import { FormattedMessage } from "react-intl";
 
 const ContactUs = ({sections}) => {
+  const {language} = useContext(GeneralContext)
   const [message, setMessage] = useState(false);
   const [file, setFile] = useState({})
 
@@ -69,17 +72,37 @@ const ContactUs = ({sections}) => {
             <li>
               <i className="ri-map-pin-2-line blue"/>
               <CopyToClipboard
-                text={"서울특별시 서초구 서초중앙로 20길 33-17, 서초빌리지 1, 202호"}
+                text={
+                  language === "ko"
+                  ? "서울특별시 서초구 서초중앙로 20길 33-17, 서초빌리지 1, 202호"
+                  : "33-17, Seochojungang-ro 20-gil, Seocho-gu, Seoul, Republic of Korea"
+                }
                 onCopy={() => setMessage(true)}
               >
                 <p>
-                  <span>서울특별시 서초구 서초중앙로 20길 33-17</span>
-                  <span>서초빌리지 1, 202호</span>
+                  <span>
+                    {
+                      language === "ko"
+                      ? "서울특별시 서초구 서초중앙로 20길 33-17"
+                      : "33-17, Seochojungang-ro 20-gil, Seocho-gu, Seoul, Republic of Korea"
+                    }
+                    
+                  </span>
+                  <span>
+                    {
+                      language === "ko"
+                      ? "서초빌리지 1, 202호"
+                      : "2F, 202, Seocho village 1"
+                    }
+                  </span>
                 </p>
               </CopyToClipboard>
               <ModalPortal>
                 <AlertMessage show={message}>
-                  클립보드에 복사되었습니다!
+                  <FormattedMessage
+                    id="copied.to.clipboard"
+                    defaultMessage="클립보드에 복사되었습니다!"
+                  />
                 </AlertMessage>
               </ModalPortal>
             </li>
@@ -91,7 +114,11 @@ const ContactUs = ({sections}) => {
                 alt="잇다 회사소개서 pdf 파일"
                 download
               >
-                회사소개서.pdf
+                {
+                  language === "ko"
+                  ? "회사소개서.pdf"
+                  : "Introduction-Itda.pdf"
+                }
               </a>
             </li>
           </ul>
