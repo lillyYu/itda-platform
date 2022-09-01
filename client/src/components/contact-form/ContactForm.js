@@ -1,13 +1,17 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import Captcha from "components/elements/Captcha";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import LoadingSpinner from "components/elements/LoadingSpinner";
 import AlertMessage from "components/elements/AlertMessage";
 import ModalPortal from 'utils/modal/ModalPortal';
 import CodeTitle from "components/elements/CodeTitle";
+import GeneralContext from "utils/context/GeneralContext";
+import { FormattedMessage } from "react-intl";
 
 const ContactForm = () => {
+  const {language} = useContext(GeneralContext);
+  
   const [message, setMessage] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -51,7 +55,8 @@ const ContactForm = () => {
   }, [message]);
 
   return (
-    loading ? <div className="alignCenter"><LoadingSpinner /></div>
+    loading 
+    ? <div className="alignCenter"><LoadingSpinner /></div>
     :
     <>
       <form onSubmit={handleSubmit(submitHandler)} data-aos="fade-left">
@@ -69,7 +74,12 @@ const ContactForm = () => {
               {...register("name", { required: true })}
             />
             <label htmlFor="name">name</label>
-            {errors.name && <span className="error">*필수 입력 항목입니다.</span>}
+            {errors.name && <span className="error">
+              <FormattedMessage
+                id="field.required"
+                defaultMessage="*필수 입력 항목입니다."
+              />
+            </span>}
           </div>
   
           <div className="inputLabel">
@@ -81,10 +91,10 @@ const ContactForm = () => {
               }
               autoComplete="off"
               {...register("phone", {
-                required:"*필수 입력 항목입니다.", 
+                required: language === "ko" ? "*필수 입력 항목입니다." : "This field is required.", 
                 pattern:{
                   value: /^[0-9]+$/, 
-                  message:"숫자만 입력해주세요."}})
+                  message: language === "ko" ? "숫자만 입력해주세요." : "Please enter a number"}})
                 } 
             />
             <label htmlFor="phone">phone</label>
@@ -100,10 +110,10 @@ const ContactForm = () => {
               }
               autoComplete="off"
               {...register("email", {
-                required:"*필수 입력 항목입니다.", 
+                required: language === "ko" ? "*필수 입력 항목입니다." : "This field is required.", 
                 pattern:{
                   value: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i, 
-                  message:"이메일 형식이 아닙니다."}})
+                  message: language === "ko" ? "이메일 형식이 아닙니다." : "Please check email format."}})
                 } 
             />
             <label htmlFor="email">email</label>
@@ -121,7 +131,12 @@ const ContactForm = () => {
               {...register("title", { required: true })}
             />
             <label htmlFor="title">title</label>
-            {errors.title && <span className="error">*필수 입력 항목입니다.</span>}
+            {errors.title && <span className="error">
+              <FormattedMessage
+                id="field.required"
+                defaultMessage="*필수 입력 항목입니다."
+              />
+            </span>}
           </div>
   
           <div className="inputLabel">
@@ -149,8 +164,18 @@ const ContactForm = () => {
       </form>
       <ModalPortal>
         <AlertMessage show={message}>
-          문의 메일이 정상적으로 발송되었습니다.
-          <br/>곧 연락드리겠습니다!
+          {
+            language === "ko"
+            ? <p>
+                문의 메일이 정상적으로 발송되었습니다.
+                <br/>곧 연락드리겠습니다!
+              </p>
+            : <p>
+                Contact form has successfully submitted.
+                <br/> We will contact you soon!
+              </p>
+          }
+          
         </AlertMessage>
       </ModalPortal>
     </>

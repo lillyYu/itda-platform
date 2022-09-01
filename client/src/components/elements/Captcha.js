@@ -1,8 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
+import GeneralContext from "utils/context/GeneralContext";
 
 let code;
 
 const Captcha = ({register, errors, trigger, watch}) => {
+  const {language} = useContext(GeneralContext)
   const captchaImg = useRef();
 
   const createCaptcha = () => {
@@ -66,7 +68,7 @@ const Captcha = ({register, errors, trigger, watch}) => {
           {...register("cpatchaText", {
             required:"*필수 입력 항목입니다.", 
             validate: {
-              value: (v) => v === code || '코드가 일치하지 않습니다.'
+              value: (v) => v === code || language === "ko" ? "코드가 일치하지 않습니다." : "Code is not matched"
             }
           }
           )}

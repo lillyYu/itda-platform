@@ -11,5 +11,6 @@
   "detail.description" : "DESCRIPTION",
   "planning" : "PLANNING",
   "designig" : "DESIGNING",
-  "developing" : "DEVELOPING"
+  "developing" : "DEVELOPING",
+  "field.required" : "This field is required."
 }

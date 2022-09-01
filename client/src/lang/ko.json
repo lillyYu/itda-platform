@@ -11,5 +11,6 @@
   "detail.description" : "상세 설명",
   "planning" : "기획",
   "designig" : "디자인",
-  "developing" : "개발"
+  "developing" : "개발",
+  "field.required" : "*필수 입력 항목입니다."
 }
