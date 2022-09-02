@@ -189,7 +189,10 @@ const OurWorkDetail = ({
           <div className="prev-next">
             <button
               disabled={workDetail.ourWork?.prev_our_work_key === undefined}
-              onClick={() => setWorkIndex(workDetail?.ourWork.prev_our_work_key)}
+              onClick={() => {
+                setWorkIndex(workDetail?.ourWork.prev_our_work_key);
+                setImgIndex(1);
+              }}
             >
               <i className="ri-arrow-left-line"/>
               Prev
@@ -197,7 +200,10 @@ const OurWorkDetail = ({
 
             <button
               disabled={workDetail.ourWork?.next_our_work_key === undefined}
-              onClick={() =>setWorkIndex(workDetail?.ourWork.next_our_work_key)}
+              onClick={() => {
+                setWorkIndex(workDetail?.ourWork.next_our_work_key);
+                setImgIndex(1);
+              }}
             >
               Next
               <i className="ri-arrow-right-line"/>
