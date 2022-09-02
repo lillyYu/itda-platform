@@ -20,16 +20,16 @@ const LocaleSelect = () => {
         boxOpen &&
         <ul>
           <li
-            className={locale === "en-US" ? "active" : ""}
-            onClick={() => handleLocale("en-US")}
-          >
-            EN
-          </li>
-          <li
             className={locale === "ko" ? "active" : ""}
             onClick={() => handleLocale("ko")}
           >
             KO
+          </li>
+          <li
+            className={locale === "en-US" ? "active" : ""}
+            onClick={() => handleLocale("en-US")}
+          >
+            EN
           </li>
         </ul>
       }

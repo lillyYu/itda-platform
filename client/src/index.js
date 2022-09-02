@@ -8,7 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { GeneralProvider } from 'utils/context/GeneralContext';
 
 // TODO: setting default language here
-const locale = localStorage.getItem("locale") ?? "ko";
+const locale = localStorage.getItem("locale") !== null ? localStorage.getItem("locale") : "ko";
 const messages = { "en-US": enUsMsg, "ko": koMsg }[locale];
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
