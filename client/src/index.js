@@ -14,6 +14,8 @@ const locale =
     : "ko";
 const messages = { "en-US": enUsMsg, ko: koMsg }[locale];
 
+console.log(locale);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(

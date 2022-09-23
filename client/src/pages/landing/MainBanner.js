@@ -71,9 +71,9 @@ const MainBanner = ({ sections }) => {
                   <p className="main-content">
                     <i className="ri-arrow-down-s-line" />
                     <span>
-                      {language === "ko"
-                        ? banner.mainContentKo
-                        : banner.mainContentEn}
+                      {language === "en-US"
+                        ? banner.mainContentEn
+                        : banner.mainContentKo}
                     </span>
                   </p>
 
@@ -93,9 +93,9 @@ const MainBanner = ({ sections }) => {
                       style={{ color: banner.color }}
                     />
                     <span>
-                      {language === "ko"
-                        ? banner.subContentKo
-                        : banner.subContentEn}
+                      {language === "en-US"
+                        ? banner.subContentEn
+                        : banner.subContentKo}
                     </span>
                   </div>
                 </li>

@@ -111,15 +111,15 @@ const ContactForm = () => {
               autoComplete="off"
               {...register("phone", {
                 required:
-                  language === "ko"
-                    ? "*필수 입력 항목입니다."
-                    : "This field is required.",
+                  language === "en-US"
+                    ? "This field is required."
+                    : "*필수 입력 항목입니다.",
                 pattern: {
                   value: /^[0-9]+$/,
                   message:
-                    language === "ko"
-                      ? "숫자만 입력해주세요."
-                      : "Please enter a number",
+                    language === "en-US"
+                      ? "Please enter a number"
+                      : "숫자만 입력해주세요.",
                 },
               })}
             />
@@ -143,15 +143,15 @@ const ContactForm = () => {
               autoComplete="off"
               {...register("email", {
                 required:
-                  language === "ko"
-                    ? "*필수 입력 항목입니다."
-                    : "This field is required.",
+                  language === "en-US"
+                    ? "This field is required."
+                    : "*필수 입력 항목입니다.",
                 pattern: {
                   value: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i,
                   message:
-                    language === "ko"
-                      ? "이메일 형식이 아닙니다."
-                      : "Please check email format.",
+                    language === "en-US"
+                      ? "Please check email format."
+                      : "이메일 형식이 아닙니다.",
                 },
               })}
             />
@@ -209,15 +209,15 @@ const ContactForm = () => {
       </form>
       <ModalPortal>
         <AlertMessage show={message}>
-          {language === "ko" ? (
-            <p>
-              문의 메일이 정상적으로 발송되었습니다.
-              <br />곧 연락드리겠습니다!
-            </p>
-          ) : (
+          {language === "en-US" ? (
             <p>
               Contact form has successfully submitted.
               <br /> We will contact you soon!
+            </p>
+          ) : (
+            <p>
+              문의 메일이 정상적으로 발송되었습니다.
+              <br />곧 연락드리겠습니다!
             </p>
           )}
         </AlertMessage>

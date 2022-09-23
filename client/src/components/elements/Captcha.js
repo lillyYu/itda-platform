@@ -65,13 +65,16 @@ const Captcha = ({ register, errors, trigger, watch }) => {
               : ""
           }
           {...register("captchaText", {
-            required: "*필수 입력 항목입니다.",
+            required:
+              language === "en-US"
+                ? "This field is required."
+                : "*필수 입력 항목입니다.",
             validate: {
               value: (v) =>
                 v === code ||
-                (language === "ko"
-                  ? "코드가 일치하지 않습니다."
-                  : "Code is not matched"),
+                (language === "en-US"
+                  ? "Code is not matched"
+                  : "코드가 일치하지 않습니다."),
             },
           })}
         />
