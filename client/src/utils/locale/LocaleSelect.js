@@ -1,23 +1,19 @@
 import { useState } from "react";
 
 const LocaleSelect = () => {
-  const [boxOpen, setBoxOpen] = useState(false)
+  const [boxOpen, setBoxOpen] = useState(false);
   const [locale, setLocale] = useState(localStorage.getItem("locale") ?? "ko");
 
   const handleLocale = (e) => {
-    setLocale(e)
+    setLocale(e);
     localStorage.setItem("locale", e);
-    window.location.reload()
-  }
+    window.location.reload();
+  };
 
   return (
-    <div 
-      className="locale-select"
-      onClick={() => setBoxOpen(!boxOpen)}
-    >
+    <div className="locale-select" onClick={() => setBoxOpen(!boxOpen)}>
       {locale === "en-US" ? "EN" : "KO"}
-      {
-        boxOpen &&
+      {boxOpen && (
         <ul>
           <li
             className={locale === "ko" ? "active" : ""}
@@ -32,9 +28,9 @@ const LocaleSelect = () => {
             EN
           </li>
         </ul>
-      }
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default LocaleSelect
+export default LocaleSelect;
