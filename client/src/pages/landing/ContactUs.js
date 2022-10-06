@@ -65,7 +65,7 @@ const ContactUs = ({ sections }) => {
               <CopyToClipboard
                 text={
                   language === "en-US"
-                    ? "33-17, Seochojungang-ro 20-gil, Seocho-gu, Seoul, Republic of Korea"
+                    ? "Starting Building, 2F, 5, Teheran-ro 38-gil, Gangnam-gu, Seoul, Republic of Korea"
                     : "서울시 강남구 테헤란로 38길 5, 2층 (스타팅빌딩)"
                 }
                 onCopy={() => setMessage(true)}
@@ -81,8 +81,7 @@ const ContactUs = ({ sections }) => {
                   </p>
                 ) : (
                   <p>
-                    <span>서울시 강남구 테헤란로 38길 5</span>
-                    <span>2층 (스타팅빌딩)</span>
+                    <span>서울시 강남구 테헤란로 38길 5, 2층 (스타팅빌딩)</span>
                   </p>
                 )}
               </CopyToClipboard>

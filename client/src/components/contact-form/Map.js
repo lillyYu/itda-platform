@@ -10,13 +10,13 @@ const Map = ({ language }) => {
     >
       <NaverMap
         mapDivId="map"
-        defaultCenter={{ lat: 37.5021098, lng: 127.0426069 }}
+        defaultCenter={{ lat: 37.5016117, lng: 127.041635 }}
         defaultZoom={18}
         zoomControl={true}
       >
         <Marker
           icon={anchor}
-          position={{ lat: 37.5021098, lng: 127.0426069 }}
+          position={{ lat: 37.5016117, lng: 127.041635 }}
           animation={2}
           title={
             language === "en-US"
