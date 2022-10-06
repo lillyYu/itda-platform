@@ -7,8 +7,7 @@
   width: 100vw;
   height: 6rem;
 
-  background: $opacity-white-10;
-  backdrop-filter: blur(4px);
+  background: $base-black-color;
   z-index: 998;
 
   @include desktop {
@@ -84,7 +83,7 @@
 
           @include button();
           color: $point-pink-color;
-          background-color: $opacity-white-20;
+          background-color: transparent;
         }
       }
     }
