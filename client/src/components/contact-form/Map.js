@@ -10,18 +10,18 @@ const Map = ({ language }) => {
     >
       <NaverMap
         mapDivId="map"
-        defaultCenter={{ lat: 37.492708, lng: 127.01547 }}
-        defaultZoom={17}
+        defaultCenter={{ lat: 37.5021098, lng: 127.0426069 }}
+        defaultZoom={18}
         zoomControl={true}
       >
         <Marker
           icon={anchor}
-          position={{ lat: 37.492668, lng: 127.015493 }}
+          position={{ lat: 37.5021098, lng: 127.0426069 }}
           animation={2}
           title={
             language === "en-US"
-              ? "2F, 202, Seocho village 1, 33-17, Seochojungang-ro 20-gil, Seocho-gu, Seoul, Republic of Korea"
-              : "서울특별시 서초구 서초중앙로 20길 33-17, 서초빌리지 1, 202호"
+              ? "Starting Building, 2F, 5, Teheran-ro 38-gil, Gangnam-gu, Seoul, Republic of Korea"
+              : "서울시 강남구 테헤란로 38길 5, 2층 (스타팅빌딩)"
           }
           // onClick={() => {
           //   alert('hello');

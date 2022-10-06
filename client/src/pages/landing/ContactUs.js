@@ -66,23 +66,23 @@ const ContactUs = ({ sections }) => {
                 text={
                   language === "en-US"
                     ? "33-17, Seochojungang-ro 20-gil, Seocho-gu, Seoul, Republic of Korea"
-                    : "서울특별시 서초구 서초중앙로 20길 33-17, 서초빌리지 1, 202호"
+                    : "서울시 강남구 테헤란로 38길 5, 2층 (스타팅빌딩)"
                 }
                 onCopy={() => setMessage(true)}
               >
                 {language === "en-US" ? (
                   <p>
-                    <span>2F, 202, Seocho village 1,</span>
+                    <span>Starting Building, 2F,</span>
                     <span>
-                      33-17, Seochojungang-ro 20-gil, Seocho-gu
+                      5, Teheran-ro 38-gil, Gangnam-gu,
                       <br />
                       Seoul, Republic of Korea
                     </span>
                   </p>
                 ) : (
                   <p>
-                    <span>서울특별시 서초구 서초중앙로 20길 33-17</span>
-                    <span>서초빌리지 1, 202호</span>
+                    <span>서울시 강남구 테헤란로 38길 5</span>
+                    <span>2층 (스타팅빌딩)</span>
                   </p>
                 )}
               </CopyToClipboard>
