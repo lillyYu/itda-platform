@@ -1,9 +1,9 @@
-import "scss/pages/landing/main-banner.scss";
-import banners from "data/main-banner.json";
-import { useContext, useState } from "react";
-import { useEffect } from "react";
-import { Desktop, Mobile } from "utils/MediaQuery";
-import GeneralContext from "utils/context/GeneralContext";
+import 'scss/pages/landing/main-banner.scss';
+import banners from 'data/main-banner.json';
+import { useContext, useState } from 'react';
+import { useEffect } from 'react';
+import { Desktop, Mobile } from 'utils/MediaQuery';
+import GeneralContext from 'utils/context/GeneralContext';
 
 const MainBanner = ({ sections }) => {
   const [currentSlide, setCurrentSlide] = useState(1);
@@ -52,13 +52,13 @@ const MainBanner = ({ sections }) => {
               return (
                 <li
                   key={banner.id}
-                  className={currentSlide === banner.id ? "active" : undefined}
+                  className={currentSlide === banner.id ? 'active' : undefined}
                 >
                   <div className="progress-bar">
                     <span
                       style={{
                         backgroundColor: banner.color,
-                        animationName: aniamtion && "progressing",
+                        animationName: aniamtion && 'progressing',
                       }}
                     />
                   </div>
@@ -71,7 +71,7 @@ const MainBanner = ({ sections }) => {
                   <p className="main-content">
                     <i className="ri-arrow-down-s-line" />
                     <span>
-                      {language === "en-US"
+                      {language === 'en-US'
                         ? banner.mainContentEn
                         : banner.mainContentKo}
                     </span>
@@ -93,7 +93,7 @@ const MainBanner = ({ sections }) => {
                       style={{ color: banner.color }}
                     />
                     <span>
-                      {language === "en-US"
+                      {language === 'en-US'
                         ? banner.subContentEn
                         : banner.subContentKo}
                     </span>

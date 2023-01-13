@@ -1,16 +1,16 @@
-import SectionTitle from "components/elements/SectionTitle";
-import "scss/pages/landing/contact-us.scss";
-import ContactForm from "components/contact-form/ContactForm";
-import Map from "components/contact-form/Map";
-import CopyToClipboard from "react-copy-to-clipboard";
-import { useContext, useEffect, useState } from "react";
-import ModalPortal from "utils/modal/ModalPortal";
-import AlertMessage from "components/elements/AlertMessage";
-import axios from "axios";
-import CodeTitle from "components/elements/CodeTitle";
-import { FileDownloadUrl, GetIntroductionFile } from "api/ApiUrl";
-import GeneralContext from "utils/context/GeneralContext";
-import { FormattedMessage } from "react-intl";
+import SectionTitle from 'components/elements/SectionTitle';
+import 'scss/pages/landing/contact-us.scss';
+import ContactForm from 'components/contact-form/ContactForm';
+import Map from 'components/contact-form/Map';
+import CopyToClipboard from 'react-copy-to-clipboard';
+import { useContext, useEffect, useState } from 'react';
+import ModalPortal from 'utils/modal/ModalPortal';
+import AlertMessage from 'components/elements/AlertMessage';
+import axios from 'axios';
+import CodeTitle from 'components/elements/CodeTitle';
+import { FileDownloadUrl, GetIntroductionFile } from 'api/ApiUrl';
+import GeneralContext from 'utils/context/GeneralContext';
+import { FormattedMessage } from 'react-intl';
 
 const ContactUs = ({ sections }) => {
   const { language } = useContext(GeneralContext);
@@ -37,16 +37,14 @@ const ContactUs = ({ sections }) => {
   }, []);
 
   return (
-    <section className="contact-us" ref={(el) => (sections.current[3] = el)}>
+    <section className="contact-us" ref={(el) => (sections.current[4] = el)}>
       <SectionTitle title="CONTACT US" />
 
       <div className="contact-us-wrap">
         <address data-aos="fade-right">
           <CodeTitle title="ITDA Address" />
 
-          <div className="naver-map">
-            <Map language={language} />
-          </div>
+          <div className="naver-map">{/* <Map language={language} /> */}</div>
 
           <ul>
             <li>
@@ -64,13 +62,13 @@ const ContactUs = ({ sections }) => {
               <i className="ri-map-pin-2-line blue" />
               <CopyToClipboard
                 text={
-                  language === "en-US"
-                    ? "Starting Building, 2F, 5, Teheran-ro 38-gil, Gangnam-gu, Seoul, Republic of Korea"
-                    : "서울시 강남구 테헤란로 38길 5, 2층 (스타팅빌딩)"
+                  language === 'en-US'
+                    ? 'Starting Building, 2F, 5, Teheran-ro 38-gil, Gangnam-gu, Seoul, Republic of Korea'
+                    : '서울시 강남구 테헤란로 38길 5, 2층 (스타팅빌딩)'
                 }
                 onCopy={() => setMessage(true)}
               >
-                {language === "en-US" ? (
+                {language === 'en-US' ? (
                   <p>
                     <span>Starting Building, 2F,</span>
                     <span>
@@ -102,9 +100,9 @@ const ContactUs = ({ sections }) => {
                 alt="잇다 회사소개서 pdf 파일"
                 download
               >
-                {language === "en-US"
-                  ? "Introduction-Itda.pdf"
-                  : "회사소개서.pdf"}
+                {language === 'en-US'
+                  ? 'Introduction-Itda.pdf'
+                  : '회사소개서.pdf'}
               </a>
             </li>
           </ul>

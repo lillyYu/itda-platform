@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "image": "images/profile_ydj.png",
+    "name": "윤동준",
+    "position": "CEO"
+  },
+  {
+    "id": 2,
+    "image": "images/profile_yth.png",
+    "name": "양태훈",
+    "position": "CEO"
+  },
+  {
+    "id": 3,
+    "image": "images/profile_jjh.png",
+    "name": "정준호",
+    "position": "CTO"
+  },
+  {
+    "id": 4,
+    "image": "images/profile_yhk.png",
+    "name": "유화경",
+    "position": "DEVELOPER"
+  },
+  {
+    "id": 5,
+    "image": "images/profile_cjw.png",
+    "name": "최지웅",
+    "position": "DEVELOPER"
+  }
+]
