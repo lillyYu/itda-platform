@@ -6,7 +6,7 @@ import Modal from 'utils/modal/Modal';
 import OurWorkDetail from 'pages/details/OurWorkDetail';
 import axios from 'axios';
 import { GetOurWorks } from 'api/ApiUrl';
-import { LOAD_SIZE_3 } from 'api/StaticValues';
+import { LOAD_SIZE_10 } from 'api/StaticValues';
 
 const OurWork = ({ sections }) => {
   const [page, setPage] = useState(1);
@@ -19,7 +19,7 @@ const OurWork = ({ sections }) => {
   const [ourWorks, setOurWorks] = useState([]);
   const [totalLength, setTotalLength] = useState(0);
 
-  const maxPages = totalLength / LOAD_SIZE_3;
+  const maxPages = totalLength / LOAD_SIZE_10;
 
   const handleModalShow = (status) => {
     setModal(status);
@@ -31,7 +31,7 @@ const OurWork = ({ sections }) => {
 
       try {
         const res = await axios.get(
-          `${GetOurWorks}?page=${page + 1}&size=${LOAD_SIZE_3}`
+          `${GetOurWorks}?page=${page + 1}&size=${LOAD_SIZE_10}`
         );
         setOurWorks(ourWorks.concat(res.data.data));
       } catch (error) {
@@ -45,11 +45,14 @@ const OurWork = ({ sections }) => {
   useEffect(() => {
     const getOurWorks = async () => {
       try {
-        const res = await axios.get(`${GetOurWorks}?page=1&size=3`, {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
+        const res = await axios.get(
+          `${GetOurWorks}?page=1&size=${LOAD_SIZE_10}`,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        );
         setTotalLength(res.data.totalCnt);
         setOurWorks(res.data.data);
       } catch (error) {
@@ -100,7 +103,7 @@ const OurWork = ({ sections }) => {
                 <li
                   key={work.our_work_key}
                   data-aos="fade-up"
-                  data-aos-delay={`${(index % 3) * 2}00`}
+                  data-aos-delay={`${(index % 5) * 2}00`}
                   onClick={() => {
                     setWorkIndex(work.our_work_key);
                     setModal(true);

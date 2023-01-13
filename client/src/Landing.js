@@ -11,7 +11,7 @@ const Landing = ({ sections }) => {
       <MainBanner sections={sections} />
       <OurBusiness sections={sections} />
       <OurWork sections={sections} />
-      <OurTeam sections={sections} />
+      {/* <OurTeam sections={sections} /> */}
       <ContactUs sections={sections} />
     </>
   );
