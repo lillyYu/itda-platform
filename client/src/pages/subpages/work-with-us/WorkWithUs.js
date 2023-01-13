@@ -1,12 +1,12 @@
-import SectionTitle from "components/elements/SectionTitle";
-import "scss/pages/subpages/work-with-us.scss";
-import { useContext, useEffect, useState } from "react";
-import Banner1 from "./banners/Banner1";
-import Banner2 from "./banners/Banner2";
-import BoardItem from "./board/BoardItem";
-import axios from "axios";
-import Information from "./information/Information";
-import GeneralContext from "utils/context/GeneralContext";
+import SectionTitle from 'components/elements/SectionTitle';
+import 'scss/pages/subpages/work-with-us.scss';
+import { useContext, useEffect, useState } from 'react';
+import Banner1 from './banners/Banner1';
+import Banner2 from './banners/Banner2';
+import BoardItem from './board/BoardItem';
+import axios from 'axios';
+import Information from './information/Information';
+import GeneralContext from 'utils/context/GeneralContext';
 
 const WorkWithUs = () => {
   const { language } = useContext(GeneralContext);
@@ -63,8 +63,8 @@ const WorkWithUs = () => {
             <SectionTitle title="WORK WITH US" />
 
             <header>
-              <em>require</em>{" "}
-              {language === "en-US" ? (
+              <em>require</em>{' '}
+              {language === 'en-US' ? (
                 <span>('Teamwork with individual COLORS✨')</span>
               ) : (
                 <span>('자신의 COLOR✨를 잃지 않는 팀웍')</span>
@@ -73,7 +73,7 @@ const WorkWithUs = () => {
                 onClick={() => {
                   setPlayBtn(!playBtn);
                 }}
-                className={playBtn ? "ri-play-line" : "ri-pause-line"}
+                className={playBtn ? 'ri-play-line' : 'ri-pause-line'}
               />
             </header>
 

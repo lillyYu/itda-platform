@@ -1,18 +1,16 @@
-import { useRef, useState } from "react";
+import { useRef, useState } from 'react';
 
-const BoardItem = ({
-  data
-}) => {
+const BoardItem = ({ data }) => {
   const content = useRef(null);
 
-  const [setActive, setActiveState] = useState("");
-  const [setHeight, setHeightState] = useState("0px");
+  const [setActive, setActiveState] = useState('');
+  const [setHeight, setHeightState] = useState('0px');
 
   function toggleAccordion() {
-    setActiveState(setActive === "" ? "active" : "");
+    setActiveState(setActive === '' ? 'active' : '');
 
     setHeightState(
-      setActive === "active" ? "0px" : `${content.current.scrollHeight}px`
+      setActive === 'active' ? '0px' : `${content.current.scrollHeight}px`
     );
   }
 
@@ -21,7 +19,11 @@ const BoardItem = ({
       <div className="accordion" onClick={toggleAccordion}>
         <p className="accordionTitle">
           <strong>{data.position}</strong>
-          <time>{data.start_date} ~ {data.end_date}</time>
+          <time>
+            {data.date_type === 0
+              ? '~ 채용시까지'
+              : `${data.start_date} ~ ${data.end_date}`}
+          </time>
         </p>
       </div>
 
@@ -31,11 +33,11 @@ const BoardItem = ({
         className="accordionContent"
       >
         <div className="accordionText">
-          <div dangerouslySetInnerHTML={{__html:data.content}} />
+          <div dangerouslySetInnerHTML={{ __html: data.content }} />
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default BoardItem
+export default BoardItem;
