@@ -9,8 +9,7 @@ const Nav = ({ navActive, handleScroll, setNavActive, setOpen }) => {
       <ul>
         <li onClick={() => handleScroll(1)}>OUR BUSINESS</li>
         <li onClick={() => handleScroll(2)}>OUR WORK</li>
-        <li onClick={() => handleScroll(3)}>OUR TEAM</li>
-        <li onClick={() => handleScroll(4)}>CONTACT US</li>
+        <li onClick={() => handleScroll(3)}>CONTACT US</li>
         <li
           onClick={() => {
             setNavActive(false);

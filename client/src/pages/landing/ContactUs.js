@@ -37,14 +37,16 @@ const ContactUs = ({ sections }) => {
   }, []);
 
   return (
-    <section className="contact-us" ref={(el) => (sections.current[4] = el)}>
+    <section className="contact-us" ref={(el) => (sections.current[3] = el)}>
       <SectionTitle title="CONTACT US" />
 
       <div className="contact-us-wrap">
         <address data-aos="fade-right">
           <CodeTitle title="ITDA Address" />
 
-          <div className="naver-map">{/* <Map language={language} /> */}</div>
+          <div className="naver-map">
+            <Map language={language} />
+          </div>
 
           <ul>
             <li>

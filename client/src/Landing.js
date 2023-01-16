@@ -1,9 +1,8 @@
-import React from 'react';
 import ContactUs from 'pages/landing/ContactUs';
 import MainBanner from 'pages/landing/MainBanner';
 import OurBusiness from 'pages/landing/OurBusiness';
-import OurTeam from 'pages/landing/OurTeam';
 import OurWork from 'pages/landing/OurWork';
+import OurTeam from 'pages/landing/OurTeam';
 
 const Landing = ({ sections }) => {
   return (
