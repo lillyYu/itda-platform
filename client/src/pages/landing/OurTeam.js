@@ -16,13 +16,13 @@ const OurTeam = ({ sections }) => {
             {profiles.map((profile) => {
               return (
                 <li>
-                  <div>
-                    <figure>
-                      <img src={profile.image} alt={`${profile.name} 프로필`} />
-                    </figure>
-                    <span>{profile.name}</span>
-                  </div>
-                  <p>{profile.position}</p>
+                  <figure>
+                    <img src={profile.image} alt={`${profile.name} 프로필`} />
+                  </figure>
+                  <p>
+                    <strong>{profile.name}</strong>
+                    <span>{profile.position}</span>
+                  </p>
                 </li>
               );
             })}

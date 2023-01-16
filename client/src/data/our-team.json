@@ -21,12 +21,12 @@
     "id": 4,
     "image": "images/profile_yhk.png",
     "name": "유화경",
-    "position": "DEVELOPER"
+    "position": "DEV"
   },
   {
     "id": 5,
     "image": "images/profile_cjw.png",
     "name": "최지웅",
-    "position": "DEVELOPER"
+    "position": "DEV"
   }
 ]

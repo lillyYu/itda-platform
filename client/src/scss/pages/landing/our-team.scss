@@ -19,40 +19,52 @@
       width: 100%;
 
       ul {
-        @include flexCenterBetween();
-        gap: 2rem;
+        @include grid(5);
+        justify-content: space-between;
+        gap: 3rem 1rem;
+
+        @include tablet {
+          @include grid(3);
+          justify-content: center;
+        }
+
+        @include mobileOnly {
+          @include grid(1);
+        }
 
         li {
           flex: 1;
+          display: flex;
+          flex-direction: column;
 
-          div {
-            position: relative;
+          figure {
+            @include imageAlignCenter();
             width: 100%;
+            height: 40rem;
 
-            figure {
-              @include imageAlignCenter();
-              width: 100%;
-              height: 30rem;
-            }
-
-            span {
-              position: absolute;
-              left: 50%;
-              bottom: -2rem;
-              transform: translateX(-50%);
-              font-family: 'GmarketSansMedium';
-
-              font-size: 5rem;
-              font-weight: bold;
-
-              color: $point-blue-color;
+            @include mobileOnly {
+              height: auto;
+              aspect-ratio: 1 / 1;
             }
           }
+
           p {
-            margin-top: 3.5rem;
+            font-family: 'GmarketSansMedium';
             text-align: center;
-            font-size: 1.8rem;
-            font-weight: bold;
+
+            span {
+              display: block;
+              margin-top: 1rem;
+              font-size: 1.6rem;
+              color: $point-blue-color;
+            }
+
+            strong {
+              display: block;
+              margin-top: 2rem;
+              font-size: 3.2rem;
+              font-weight: bold;
+            }
           }
         }
       }

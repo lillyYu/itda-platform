@@ -1,4 +1,4 @@
-@import "scss/commons/var.scss";
+@import 'scss/commons/var.scss';
 
 .main-banner {
   @include height();
@@ -12,7 +12,7 @@
     position: absolute;
     right: 5%;
 
-    content: "Hello, Itda!";
+    content: 'Hello, Itda!';
     font-size: clamp(4.8rem, 6vw, 8rem);
     font-family: $bold-ff;
     color: $opacity-white-30;
@@ -79,11 +79,11 @@
             opacity: 0;
             margin-left: 0;
             transition: opacity 1s;
-  
+
             &.active {
               opacity: 1;
             }
-  
+
             span {
               position: absolute;
               display: block;
@@ -92,12 +92,12 @@
               font-size: 40rem;
               font-family: $bold-ff;
               opacity: 0.3;
-  
+
               &:nth-child(1) {
                 top: 40%;
                 left: -2rem;
               }
-  
+
               &:nth-child(2) {
                 bottom: 0;
                 right: 0;
@@ -166,7 +166,8 @@
             color: transparent;
 
             @include desktop {
-              @include bigFont();
+              font-size: 4.2rem;
+              font-family: $bold-ff;
               padding-left: 0;
             }
 
@@ -184,7 +185,7 @@
 
             @include desktop {
               margin-left: 7.5%;
-              font-size: $medium-fs;
+              font-size: $large-fs;
               margin-top: 3rem;
               margin-left: 3%;
             }
@@ -204,6 +205,7 @@
             justify-content: flex-start;
             margin-left: 15%;
             margin-right: 5%;
+            font-size: 1.7rem;
 
             @include desktop {
               margin-top: 1rem;
@@ -224,7 +226,6 @@
         }
       }
     }
-
   }
 }
 

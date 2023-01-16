@@ -37,7 +37,7 @@ const ContactUs = ({ sections }) => {
   }, []);
 
   return (
-    <section className="contact-us" ref={(el) => (sections.current[3] = el)}>
+    <section className="contact-us" ref={(el) => (sections.current[4] = el)}>
       <SectionTitle title="CONTACT US" />
 
       <div className="contact-us-wrap">

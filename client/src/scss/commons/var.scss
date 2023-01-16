@@ -208,6 +208,13 @@ $left-right-bs: -2rem 2px 3rem rgba(0, 0, 0, 0.25);
 }
 
 // mediaquery styling
+
+@mixin mobileOnly {
+  @media (min-width: 200px) and (max-width: #{$breakpoint-tablet - 1px}) {
+    @content;
+  }
+}
+
 @mixin mobile {
   @media (max-width: #{$breakpoint-mobile}) {
     @content;
