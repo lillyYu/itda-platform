@@ -34,9 +34,7 @@ const OurWork = ({ sections }) => {
           `${GetOurWorks}?page=${page + 1}&size=${LOAD_SIZE_10}`
         );
         setOurWorks(ourWorks.concat(res.data.data));
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     } else {
       return undefined;
     }
@@ -55,9 +53,7 @@ const OurWork = ({ sections }) => {
         );
         setTotalLength(res.data.totalCnt);
         setOurWorks(res.data.data);
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     };
 
     getOurWorks();

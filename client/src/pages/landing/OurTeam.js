@@ -13,9 +13,9 @@ const OurTeam = ({ sections }) => {
 
         <article>
           <ul>
-            {profiles.map((profile) => {
+            {profiles.map((profile, idx) => {
               return (
-                <li>
+                <li key={`${profile.name}${idx}`}>
                   <figure>
                     <img src={profile.image} alt={`${profile.name} 프로필`} />
                   </figure>

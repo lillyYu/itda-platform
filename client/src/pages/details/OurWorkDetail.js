@@ -1,10 +1,10 @@
-import "scss/pages/details/our-work-detail.scss";
-import tags from "data/work-detail-tags.json";
-import { useContext, useEffect, useState } from "react";
-import axios from "axios";
-import { GetOurWorksDetail } from "api/ApiUrl";
-import { FormattedMessage } from "react-intl";
-import GeneralContext from "utils/context/GeneralContext";
+import 'scss/pages/details/our-work-detail.scss';
+import tags from 'data/work-detail-tags.json';
+import { useContext, useEffect, useState } from 'react';
+import axios from 'axios';
+import { GetOurWorksDetail } from 'api/ApiUrl';
+import { FormattedMessage } from 'react-intl';
+import GeneralContext from 'utils/context/GeneralContext';
 
 const OurWorkDetail = ({ setWorkIndex, workIndex, setImgIndex, imgIndex }) => {
   const { language } = useContext(GeneralContext);
@@ -15,9 +15,7 @@ const OurWorkDetail = ({ setWorkIndex, workIndex, setImgIndex, imgIndex }) => {
       try {
         const res = await axios.get(`${GetOurWorksDetail}/${workIndex}`);
         setWorkDetail(res.data);
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     };
 
     getWorkDetail();
@@ -26,7 +24,7 @@ const OurWorkDetail = ({ setWorkIndex, workIndex, setImgIndex, imgIndex }) => {
   return (
     <>
       <header>
-        {language === "en-US"
+        {language === 'en-US'
           ? workDetail.ourWork?.title_en
           : workDetail.ourWork?.title_ko}
       </header>
@@ -95,7 +93,7 @@ const OurWorkDetail = ({ setWorkIndex, workIndex, setImgIndex, imgIndex }) => {
                 />
               </em>
               <p>
-                {workDetail.ourWork?.work_timespent}{" "}
+                {workDetail.ourWork?.work_timespent}{' '}
                 <FormattedMessage id="months" defaultMessage="개월" />
               </p>
             </li>
@@ -114,11 +112,11 @@ const OurWorkDetail = ({ setWorkIndex, workIndex, setImgIndex, imgIndex }) => {
                       key={range.id}
                       className={
                         workDetail.ourWork?.work_range.includes(range.id)
-                          ? "active"
+                          ? 'active'
                           : undefined
                       }
                     >
-                      {language === "en-US" ? range.nameEn : range.nameKo}
+                      {language === 'en-US' ? range.nameEn : range.nameKo}
                     </li>
                   );
                 })}
@@ -134,7 +132,7 @@ const OurWorkDetail = ({ setWorkIndex, workIndex, setImgIndex, imgIndex }) => {
                       key={os.id}
                       className={
                         workDetail.ourWork?.work_os.includes(os.id)
-                          ? "active"
+                          ? 'active'
                           : undefined
                       }
                     >
@@ -159,7 +157,7 @@ const OurWorkDetail = ({ setWorkIndex, workIndex, setImgIndex, imgIndex }) => {
                       key={lang.id}
                       className={
                         workDetail.ourWork?.work_lang.includes(lang.id)
-                          ? "active"
+                          ? 'active'
                           : undefined
                       }
                     >
@@ -178,7 +176,7 @@ const OurWorkDetail = ({ setWorkIndex, workIndex, setImgIndex, imgIndex }) => {
                 />
               </em>
               <p>
-                {language === "en-US"
+                {language === 'en-US'
                   ? workDetail.ourWork?.content_en
                   : workDetail.ourWork?.content_ko}
               </p>

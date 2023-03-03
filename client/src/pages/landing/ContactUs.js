@@ -15,7 +15,10 @@ import { FormattedMessage } from 'react-intl';
 const ContactUs = ({ sections }) => {
   const { language } = useContext(GeneralContext);
   const [message, setMessage] = useState(false);
-  const [file, setFile] = useState({});
+  const [file, setFile] = useState({
+    koFile: '',
+    enFile: '',
+  });
 
   useEffect(() => {
     if (message) {
@@ -27,10 +30,14 @@ const ContactUs = ({ sections }) => {
     const getIntroductionFile = async () => {
       try {
         const res = await axios.get(`${GetIntroductionFile}`);
-        setFile(res.data);
-      } catch (error) {
-        console.log(error);
-      }
+        const ko = res.data[0];
+        const en = res.data[1];
+
+        setFile({
+          koFile: `${FileDownloadUrl}?path=${ko?.attach_file_path}&tname=${ko?.temp_file_name}&name=${ko?.origin_file_name}`,
+          enFile: `${FileDownloadUrl}?path=${en?.attach_file_path}&tname=${en?.temp_file_name}&name=${en?.origin_file_name}`,
+        });
+      } catch (error) {}
     };
 
     getIntroductionFile();
@@ -98,8 +105,12 @@ const ContactUs = ({ sections }) => {
             <li>
               <i className="ri-survey-line" />
               <a
-                href={`${FileDownloadUrl}?path=${file?.attach_file_path}&tname=${file?.temp_file_name}&name=${file?.origin_file_name}`}
-                alt="잇다 회사소개서 pdf 파일"
+                href={language === 'en-US' ? file.enFile : file.koFile}
+                alt={
+                  language === 'en-US'
+                    ? 'Introduction-Itda file'
+                    : '회사소개서 파일'
+                }
                 download
               >
                 {language === 'en-US'

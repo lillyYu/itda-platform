@@ -47,9 +47,7 @@ const WorkWithUs = () => {
       try {
         const res = await axios.get(`/api/v1/with-us`);
         setWithUs(res.data);
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     };
 
     getWorkWithUs();

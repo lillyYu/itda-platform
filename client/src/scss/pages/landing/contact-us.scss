@@ -19,7 +19,7 @@
       justify-content: space-between;
       gap: 0 8rem;
 
-      &>* {
+      & > * {
         flex: 1;
       }
 
@@ -46,8 +46,9 @@
         }
       }
 
-      &>ul {
+      & > ul {
         li {
+          width: fit-content;
           display: flex;
           margin-bottom: 1rem;
           font-size: 1.6rem;
@@ -61,7 +62,6 @@
             a {
               color: $opacity-white-60;
               border-bottom: 1px solid $opacity-white-60;
-
             }
           }
 
@@ -84,7 +84,7 @@
       }
 
       .captcha-form {
-        &>div {
+        & > div {
           @include flexAlignCenter();
           gap: 0 1.2rem;
 
@@ -110,7 +110,7 @@
         }
       }
 
-      button[type="submit"] {
+      button[type='submit'] {
         @include button();
         background-color: $opacity-white-20;
         transition: all 0.3s;

@@ -1,13 +1,13 @@
-import axios from "axios";
-import { useForm } from "react-hook-form";
-import Captcha from "components/elements/Captcha";
-import { useContext, useEffect, useState } from "react";
-import LoadingSpinner from "components/elements/LoadingSpinner";
-import AlertMessage from "components/elements/AlertMessage";
-import ModalPortal from "utils/modal/ModalPortal";
-import CodeTitle from "components/elements/CodeTitle";
-import GeneralContext from "utils/context/GeneralContext";
-import { FormattedMessage } from "react-intl";
+import axios from 'axios';
+import { useForm } from 'react-hook-form';
+import Captcha from 'components/elements/Captcha';
+import { useContext, useEffect, useState } from 'react';
+import LoadingSpinner from 'components/elements/LoadingSpinner';
+import AlertMessage from 'components/elements/AlertMessage';
+import ModalPortal from 'utils/modal/ModalPortal';
+import CodeTitle from 'components/elements/CodeTitle';
+import GeneralContext from 'utils/context/GeneralContext';
+import { FormattedMessage } from 'react-intl';
 
 const ContactForm = () => {
   const { language } = useContext(GeneralContext);
@@ -23,13 +23,13 @@ const ContactForm = () => {
     watch,
     formState: { errors },
   } = useForm({
-    mode: "onBlur",
+    mode: 'onBlur',
     defaultValues: {
-      name: "",
-      phone: "",
-      email: "",
-      title: "",
-      message: "",
+      name: '',
+      phone: '',
+      email: '',
+      title: '',
+      message: '',
     },
   });
 
@@ -37,7 +37,7 @@ const ContactForm = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post("/api/v1/mail/mail-send", {
+      const res = await axios.post('/api/v1/mail/mail-send', {
         name: data.name,
         phone: data.phone,
         email: data.email,
@@ -52,7 +52,6 @@ const ContactForm = () => {
       }
     } catch (error) {
       setLoading(false);
-      console.log(error);
     }
   };
 
@@ -77,14 +76,14 @@ const ContactForm = () => {
               type="text"
               id="name"
               className={
-                watch("name") !== ""
-                  ? "active"
+                watch('name') !== ''
+                  ? 'active'
                   : errors.name
-                  ? "errorBorder"
-                  : ""
+                  ? 'errorBorder'
+                  : ''
               }
               autoComplete="off"
-              {...register("name", { required: true })}
+              {...register('name', { required: true })}
             />
             <label htmlFor="name">name</label>
             {errors.name && (
@@ -102,24 +101,24 @@ const ContactForm = () => {
               type="phone"
               id="phone"
               className={
-                watch("phone") !== ""
-                  ? "active"
+                watch('phone') !== ''
+                  ? 'active'
                   : errors.phone
-                  ? "errorBorder"
-                  : ""
+                  ? 'errorBorder'
+                  : ''
               }
               autoComplete="off"
-              {...register("phone", {
+              {...register('phone', {
                 required:
-                  language === "en-US"
-                    ? "This field is required."
-                    : "*필수 입력 항목입니다.",
+                  language === 'en-US'
+                    ? 'This field is required.'
+                    : '*필수 입력 항목입니다.',
                 pattern: {
                   value: /^[0-9]+$/,
                   message:
-                    language === "en-US"
-                      ? "Please enter a number"
-                      : "숫자만 입력해주세요.",
+                    language === 'en-US'
+                      ? 'Please enter a number'
+                      : '숫자만 입력해주세요.',
                 },
               })}
             />
@@ -134,24 +133,24 @@ const ContactForm = () => {
               type="text"
               id="email"
               className={
-                watch("email") !== ""
-                  ? "active"
+                watch('email') !== ''
+                  ? 'active'
                   : errors.email
-                  ? "errorBorder"
-                  : ""
+                  ? 'errorBorder'
+                  : ''
               }
               autoComplete="off"
-              {...register("email", {
+              {...register('email', {
                 required:
-                  language === "en-US"
-                    ? "This field is required."
-                    : "*필수 입력 항목입니다.",
+                  language === 'en-US'
+                    ? 'This field is required.'
+                    : '*필수 입력 항목입니다.',
                 pattern: {
                   value: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i,
                   message:
-                    language === "en-US"
-                      ? "Please check email format."
-                      : "이메일 형식이 아닙니다.",
+                    language === 'en-US'
+                      ? 'Please check email format.'
+                      : '이메일 형식이 아닙니다.',
                 },
               })}
             />
@@ -166,14 +165,14 @@ const ContactForm = () => {
               type="text"
               id="title"
               className={
-                watch("title") !== ""
-                  ? "active"
+                watch('title') !== ''
+                  ? 'active'
                   : errors.title
-                  ? "errorBorder"
-                  : ""
+                  ? 'errorBorder'
+                  : ''
               }
               autoComplete="off"
-              {...register("title", { required: true })}
+              {...register('title', { required: true })}
             />
             <label htmlFor="title">title</label>
             {errors.title && (
@@ -189,8 +188,8 @@ const ContactForm = () => {
           <div className="inputLabel">
             <textarea
               id="message"
-              className={watch("message") !== "" ? "active" : ""}
-              {...register("message")}
+              className={watch('message') !== '' ? 'active' : ''}
+              {...register('message')}
             />
             <label htmlFor="message">other message</label>
           </div>
@@ -209,7 +208,7 @@ const ContactForm = () => {
       </form>
       <ModalPortal>
         <AlertMessage show={message}>
-          {language === "en-US" ? (
+          {language === 'en-US' ? (
             <p>
               Contact form has successfully submitted.
               <br /> We will contact you soon!
