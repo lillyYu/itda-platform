@@ -58,17 +58,20 @@ const ContactUs = ({ sections }) => {
           <ul>
             <li>
               <i className="ri-mail-line pink" />
+
               <a href="mailto:dev@itdadev.com" rel="noreferrer">
                 dev@itdadev.com
               </a>
             </li>
             <li>
               <i className="ri-phone-line purple" />
+
               <a href="tel:01033242474">+82 010 3324 2474</a>
             </li>
 
             <li>
               <i className="ri-map-pin-2-line blue" />
+
               <CopyToClipboard
                 text={
                   language === "en-US"
@@ -80,6 +83,7 @@ const ContactUs = ({ sections }) => {
                 {language === "en-US" ? (
                   <p>
                     <span>Starting Building, 2F,</span>
+
                     <span>
                       5, Teheran-ro 38-gil, Gangnam-gu,
                       <br />
@@ -92,6 +96,7 @@ const ContactUs = ({ sections }) => {
                   </p>
                 )}
               </CopyToClipboard>
+
               <ModalPortal>
                 <AlertMessage show={message}>
                   <FormattedMessage
@@ -102,8 +107,9 @@ const ContactUs = ({ sections }) => {
               </ModalPortal>
             </li>
 
-            <li>
+            <li className="introduction">
               <i className="ri-survey-line" />
+
               <a
                 href={language === "en-US" ? file.enFile : file.koFile}
                 alt={
@@ -116,6 +122,16 @@ const ContactUs = ({ sections }) => {
                 {language === "en-US"
                   ? "Introduction-Itda.pdf"
                   : "회사소개서.pdf"}
+              </a>
+            </li>
+
+            <li className="notion">
+              <a
+                href="https://itdadev.notion.site/itdadev/ITDA-564620af541b43a389410d9bfef01285"
+                rel="noreferrer"
+                target="_blank"
+              >
+                NOTION
               </a>
             </li>
           </ul>

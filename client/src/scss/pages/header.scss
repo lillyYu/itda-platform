@@ -1,4 +1,4 @@
-@import 'scss/commons/var';
+@import "scss/commons/var";
 
 .header {
   position: fixed;
@@ -70,7 +70,7 @@
         }
       }
 
-      .notionLink {
+      .pdfLink {
         @include alignCenter();
         width: 100%;
 
@@ -80,7 +80,6 @@
           font-weight: bold;
           text-align: center;
 
-          @include button();
           color: $point-pink-color;
           background-color: transparent;
         }
@@ -108,7 +107,7 @@
           }
         }
 
-        .notionLink {
+        .pdfLink {
           flex: 1;
           justify-content: flex-end;
         }
@@ -159,7 +158,7 @@
           margin-right: 0;
         }
 
-        .notionLink {
+        .pdfLink {
           flex-direction: column-reverse;
           gap: 3rem 0;
         }

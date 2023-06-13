@@ -1,4 +1,4 @@
-@import 'scss/commons/var';
+@import "scss/commons/var";
 
 .contact-us {
   @include height();
@@ -58,10 +58,27 @@
             margin-right: 1rem;
           }
 
-          &:last-child {
+          &.introduction {
             a {
               color: $opacity-white-60;
               border-bottom: 1px solid $opacity-white-60;
+            }
+          }
+
+          &.notion {
+            display: block;
+            margin-top: 2rem;
+            padding: 0.5rem 2rem;
+            color: white;
+            background-color: $point-pink-color;
+            border-radius: 30rem;
+            font-weight: $bold-fw;
+            font-size: 1.4rem;
+            transition: all 0.3s;
+
+            &:hover {
+              background-color: white;
+              color: $point-pink-color;
             }
           }
 
@@ -110,7 +127,7 @@
         }
       }
 
-      button[type='submit'] {
+      button[type="submit"] {
         @include button();
         background-color: $opacity-white-20;
         transition: all 0.3s;

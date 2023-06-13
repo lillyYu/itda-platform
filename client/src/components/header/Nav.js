@@ -1,11 +1,18 @@
-import Footer from 'pages/Footer';
-import { Mobile } from 'utils/MediaQuery';
-import { NavLink } from 'react-router-dom';
-import LocaleSelect from 'utils/locale/LocaleSelect';
+import Footer from "pages/Footer";
+import { Mobile } from "utils/MediaQuery";
+import { NavLink } from "react-router-dom";
+import LocaleSelect from "utils/locale/LocaleSelect";
 
-const Nav = ({ navActive, handleScroll, setNavActive, setOpen }) => {
+const Nav = ({
+  navActive,
+  handleScroll,
+  setNavActive,
+  setOpen,
+  language,
+  file,
+}) => {
   return (
-    <nav className={navActive ? 'active' : undefined}>
+    <nav className={navActive ? "active" : undefined}>
       <ul>
         <li onClick={() => handleScroll(1)}>OUR BUSINESS</li>
         <li onClick={() => handleScroll(2)}>OUR WORK</li>
@@ -23,15 +30,17 @@ const Nav = ({ navActive, handleScroll, setNavActive, setOpen }) => {
         </li>
       </ul>
 
-      <div className="notionLink">
+      <div className="pdfLink">
         <LocaleSelect />
 
         <a
-          href="https://itdadev.notion.site/itdadev/ITDA-564620af541b43a389410d9bfef01285"
-          rel="noreferrer"
-          target="_blank"
+          href={language === "en-US" ? file.enFile : file.koFile}
+          alt={
+            language === "en-US" ? "Introduction-Itda file" : "회사소개서 파일"
+          }
+          download
         >
-          NOTION
+          {language === "en-US" ? "Introduction-Itda.pdf" : "회사소개서.pdf"}
         </a>
       </div>
 
