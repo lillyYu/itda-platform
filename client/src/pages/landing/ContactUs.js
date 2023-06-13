@@ -51,7 +51,9 @@ const ContactUs = ({ sections }) => {
         <address data-aos="fade-right">
           <CodeTitle title="ITDA Address" />
 
-          <div className="naver-map">{/* <Map language={language} /> */}</div>
+          <div className="naver-map">
+            <Map language={language} />
+          </div>
 
           <ul>
             <li>
