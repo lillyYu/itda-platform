@@ -66,6 +66,8 @@ const Header = ({ handleScroll, navActive, setNavActive, isOpen, setOpen }) => {
             handleScroll={handleScroll}
             setNavActive={setNavActive}
             setOpen={setOpen}
+            language={language}
+            file={file}
           />
         </Mobile>
 
